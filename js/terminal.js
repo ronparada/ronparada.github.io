@@ -1,3 +1,7 @@
+/**
+ * TERMINAL — bottom dock navigation
+ * Add commands in COMMANDS below. Project aliases in PROJECT_ALIASES.
+ */
 (function () {
   const historyEl = document.getElementById('terminal-history');
   const form = document.getElementById('terminal-form');

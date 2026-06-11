@@ -1,3 +1,7 @@
+/**
+ * MAIN — renders page sections, hero typing, scroll animations, nav
+ * Content comes from data.js. Styling from css/style.css.
+ */
 (function () {
   const { projects, labProjects, skills, certifications, education, bootSequence } = PORTFOLIO_DATA;
 

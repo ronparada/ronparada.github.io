@@ -1,3 +1,8 @@
+/**
+ * CONTACT FORM — sends via Formspree AJAX (see config.js for formspreeId)
+ * Uses type="button" (not submit) to avoid browser opening Outlook/mailto
+ * Only works on https://ronparada.github.io — localhost shows a preview message
+ */
 (function () {
   const form = document.getElementById('contact-form');
   const statusEl = document.getElementById('form-status');

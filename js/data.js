@@ -1,3 +1,15 @@
+/**
+ * PORTFOLIO DATA — main content lives here
+ *
+ * projects[]     → Live sites & academic work (Projects section)
+ * labProjects[]  → Homelab cards (Cyber Lab section)
+ * skills[]       → Skill tags
+ * certifications → professional + labs (Skills section)
+ * education[]    → Degree history
+ * bootSequence[] → Hero terminal boot text
+ *
+ * To add a project: copy an existing entry and change id, title, description, tags/url
+ */
 const PORTFOLIO_DATA = {
   projects: [
     {
