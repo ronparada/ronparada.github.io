@@ -3,7 +3,12 @@
   const statusEl = document.getElementById('form-status');
   if (!form) return;
 
+  const nameInput = document.getElementById('contact-name');
+  const emailInput = document.getElementById('contact-email');
+  const messageInput = document.getElementById('contact-message');
   const honeypot = form.querySelector('[name="_gotcha"]');
+  const formspreeId = (typeof SITE_CONFIG !== 'undefined' && SITE_CONFIG.formspreeId) || 'xaqzpokl';
+  const endpoint = `https://formspree.io/f/${formspreeId}`;
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -11,9 +16,9 @@
     if (honeypot && honeypot.value) return;
 
     const btn = form.querySelector('button[type="submit"]');
-    const name = form.name.value.trim();
-    const email = form.email.value.trim();
-    const message = form.message.value.trim();
+    const name = nameInput.value.trim();
+    const email = emailInput.value.trim();
+    const message = messageInput.value.trim();
 
     if (!name || !email || !message) {
       showStatus('Fill in all fields.', 'error');
@@ -25,20 +30,12 @@
       return;
     }
 
-    const formspreeId = typeof SITE_CONFIG !== 'undefined' && SITE_CONFIG.formspreeId;
-
-    if (!formspreeId) {
-      showStatus('Form not configured yet — email me directly.', 'error');
-      window.location.href = `mailto:${SITE_CONFIG?.contactEmail || 'ronparada@protonmail.com'}?subject=${encodeURIComponent('Portfolio contact from ' + name)}&body=${encodeURIComponent(message + '\n\nFrom: ' + email)}`;
-      return;
-    }
-
     btn.disabled = true;
     btn.textContent = 'transmitting...';
     showStatus('', '');
 
     try {
-      const res = await fetch(`https://formspree.io/f/${formspreeId}`, {
+      const res = await fetch(endpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -49,6 +46,7 @@
           email,
           message,
           _subject: `Portfolio contact from ${name}`,
+          _replyto: email,
         }),
       });
 
@@ -59,12 +57,12 @@
         showStatus('Message sent. I\'ll get back to you.', 'success');
         btn.textContent = 'sent ✓';
       } else {
-        const errMsg = data.error || Object.values(data.errors || {}).flat().join(' ') || 'Send failed';
-        showStatus(errMsg + ' — try email directly.', 'error');
+        const errMsg = data.error || Object.values(data.errors || {}).flat().join(' ') || `Error ${res.status}`;
+        showStatus(`${errMsg} — try email directly.`, 'error');
         btn.textContent = 'transmit()';
       }
-    } catch {
-      showStatus('Send failed — try email directly.', 'error');
+    } catch (err) {
+      showStatus(`Network error — try email directly. (${err.message})`, 'error');
       btn.textContent = 'transmit()';
     } finally {
       btn.disabled = false;

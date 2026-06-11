@@ -782,6 +782,11 @@ a:hover { color: var(--green); }
   border-top: 1px solid var(--border);
 }
 
+#build-tag {
+  color: var(--green);
+  font-size: 0.65rem;
+}
+
 .footer-blink {
   animation: blink 1s step-end infinite;
   color: var(--green);

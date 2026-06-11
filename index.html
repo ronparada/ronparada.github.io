@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=6">
+  <link rel="stylesheet" href="css/style.css?v=8">
 </head>
 <body>
   <div class="scanlines" aria-hidden="true"></div>
@@ -234,22 +234,22 @@
             </li>
           </ul>
         </div>
-        <form class="contact-form card" id="contact-form" novalidate>
+        <form class="contact-form card" id="contact-form" action="https://formspree.io/f/xaqzpokl" method="POST" novalidate>
           <h3>send_signal()</h3>
           <label class="hp-field" aria-hidden="true">
             <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
           </label>
           <label>
             <span>name</span>
-            <input type="text" name="name" required maxlength="100" placeholder="your_name" autocomplete="name">
+            <input type="text" id="contact-name" name="name" required maxlength="100" placeholder="your_name" autocomplete="name">
           </label>
           <label>
             <span>email</span>
-            <input type="email" name="email" required maxlength="254" placeholder="you@domain.com" autocomplete="email">
+            <input type="email" id="contact-email" name="email" required maxlength="254" placeholder="you@domain.com" autocomplete="email">
           </label>
           <label>
             <span>message</span>
-            <textarea name="message" rows="4" required maxlength="2000" placeholder="// what's on your mind?"></textarea>
+            <textarea id="contact-message" name="message" rows="4" required maxlength="2000" placeholder="// what's on your mind?"></textarea>
           </label>
           <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
           <button type="submit" class="btn btn-primary">transmit()</button>
@@ -259,7 +259,7 @@
   </main>
 
   <footer class="site-footer">
-    <p>© 2026 Ronald Parada · built with curiosity and caffeine · <span class="footer-blink">█</span></p>
+    <p>© 2026 Ronald Parada · built with curiosity and caffeine · <span class="footer-blink">█</span> · <span id="build-tag">v8</span></p>
   </footer>
 
   <!-- INTERACTIVE TERMINAL -->
@@ -282,11 +282,11 @@
     </div>
   </div>
 
-  <script src="js/config.js?v=7"></script>
-  <script src="js/security.js?v=7"></script>
-  <script src="js/data.js?v=7"></script>
-  <script src="js/terminal.js?v=7"></script>
-  <script src="js/main.js?v=7"></script>
-  <script src="js/contact.js?v=7"></script>
+  <script src="js/config.js?v=8"></script>
+  <script src="js/security.js?v=8"></script>
+  <script src="js/data.js?v=8"></script>
+  <script src="js/terminal.js?v=8"></script>
+  <script src="js/main.js?v=8"></script>
+  <script src="js/contact.js?v=8"></script>
 </body>
 </html>
