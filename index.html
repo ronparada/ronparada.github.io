@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ronald A. Parada — Cybersecurity portfolio. MS IST Cybersecurity graduate, Security+ certified. Graduate Assistant, web dev, homelab builder.">
+  <title>ronparada@portfolio ~</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=5">
+</head>
+<body>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="crt-glow" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <span class="logo" data-text="ronparada@portfolio">ronparada@portfolio</span>
+      <nav class="nav-links" aria-label="Section navigation">
+        <button data-section="about">about</button>
+        <button data-section="projects">projects</button>
+        <button data-section="lab">lab</button>
+        <button data-section="skills">skills</button>
+        <button data-section="community">community</button>
+        <button data-section="contact">contact</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="hero" class="section hero">
+      <div class="hero-grid">
+        <div class="boot-terminal" id="boot-terminal" aria-label="System boot sequence">
+          <div class="terminal-bar">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="terminal-title">boot_sequence.sh</span>
+          </div>
+          <pre class="boot-output" id="boot-output"></pre>
+        </div>
+        <div class="hero-content">
+          <p class="hero-tag">// MS Cybersecurity Graduate · Security+ · GA · IECI</p>
+          <h1 class="hero-name">
+            <span class="prompt">$</span>
+            <span id="typed-name"></span><span class="cursor-blink">█</span>
+          </h1>
+          <p class="hero-sub" id="typed-subtitle"></p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary" data-section="projects">view_projects()</a>
+            <a href="https://ronparada.github.io/retro-games/" target="_blank" rel="noopener" class="btn btn-secondary">play_retro_games()</a>
+            <a href="https://linkedin.com/in/ronaldaparada" target="_blank" rel="noopener" class="btn btn-ghost">linkedin</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat"><span class="stat-val">May '26</span><span class="stat-label">Graduated</span></div>
+            <div class="stat"><span class="stat-val">2</span><span class="stat-label">Certs Active</span></div>
+            <div class="stat"><span class="stat-val">10+</span><span class="stat-label">Live Projects</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <h2>about<span class="accent">.md</span></h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            I'm <strong>Ronald A. Parada</strong> — I earned my MS in Cybersecurity from CSU San Bernardino
+            (GPA 4.00) and <strong>graduated May 16, 2026</strong>.             I'm not a student anymore. I spend my days as a <strong>Graduate Assistant</strong>
+            for cybersecurity courses, at <strong>church</strong> (sound, web, whatever needs fixing),
+            and as <strong>VP of Coyote Karate Academy</strong> at CSUSB.
+          </p>
+          <p>
+            I also build websites, run a growing homelab, and tinker with hardware on evenings
+            and weekends — Meshtastic nodes, RF experiments, that kind of thing. The fun stuff is
+            real, but it's not my day job, and I'm honest about that here.
+          </p>
+          <p>
+            This site is for <em>employers who want a serious hire</em> and anyone curious about
+            what I actually do. Lab projects are described at a high level — no exploit recipes,
+            because ethics matter and I want to be comfortable showing this to anyone.
+          </p>
+        </div>
+        <div class="about-facts card">
+          <h3>quick_facts.json</h3>
+          <ul class="fact-list">
+            <li><span class="key">"location"</span>: <span class="val">"San Bernardino, CA"</span></li>
+            <li><span class="key">"degree"</span>: <span class="val">"MS IST — Cybersecurity ✓ May 16, 2026"</span></li>
+            <li><span class="key">"role"</span>: <span class="val">"Graduate Assistant — Cybersecurity"</span></li>
+            <li><span class="key">"certs"</span>: <span class="val">["Security+", "ISC² CC"]</span></li>
+            <li><span class="key">"languages"</span>: <span class="val">["English", "Spanish"]</span></li>
+            <li><span class="key">"status"</span>: <span class="val status-open">"open_to_opportunities"</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <h2>projects<span class="accent">/</span></h2>
+      </div>
+      <p class="section-desc">Live sites, academic work, and things you can click right now.</p>
+      <div class="project-grid" id="project-grid"></div>
+    </section>
+
+    <!-- CYBER LAB -->
+    <section id="lab" class="section lab-section">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <h2>cyber_lab<span class="accent">.research</span></h2>
+      </div>
+      <p class="section-desc">
+        My personal homelab — still growing, but this is the real setup. Described at a high level
+        for a controlled, private environment. No exploit recipes, no attack playbooks.
+        <span class="lab-badge">PRIVATE LAB</span>
+      </p>
+      <div class="lab-grid" id="lab-grid"></div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section">
+      <div class="section-header">
+        <span class="section-num">04</span>
+        <h2>skills<span class="accent">&amp;certs</span></h2>
+      </div>
+      <div class="skills-layout">
+        <div class="skills-column">
+          <h3>Technical</h3>
+          <div class="skill-tags" id="skill-tags"></div>
+        </div>
+        <div class="skills-column">
+          <h3>Certifications</h3>
+          <div class="cert-list" id="cert-list"></div>
+        </div>
+        <div class="skills-column">
+          <h3>Education</h3>
+          <div class="edu-list" id="edu-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMUNITY -->
+    <section id="community" class="section community-section">
+      <div class="section-header">
+        <span class="section-num">05</span>
+        <h2>leadership<span class="accent">&amp;involvement</span></h2>
+      </div>
+      <p class="section-desc">What I actually do day to day — teaching, volunteering, and leading.</p>
+      <div class="community-extras">
+        <div class="mini-card card">
+          <h4>Graduate Assistant — Cybersecurity</h4>
+          <p>Support cybersecurity courses at CSUSB: grading, tutoring, course materials, and helping students work through the hard stuff.</p>
+        </div>
+        <div class="mini-card card">
+          <h4>Fresca Unción Church</h4>
+          <p>Been going for over a decade — I handle sound, the website, and tech when something breaks.</p>
+          <a href="http://igleciafrescauncion.com/" target="_blank" rel="noopener">igleciafrescauncion.com →</a>
+        </div>
+        <div class="mini-card card">
+          <h4>Coyote Karate Academy VP</h4>
+          <p>Leadership at CSUSB's karate club — martial arts, community, and the dojo's web presence.</p>
+          <a href="https://coyotekarateacademy.com/" target="_blank" rel="noopener">coyotekarateacademy.com →</a>
+        </div>
+        <div class="mini-card card">
+          <h4>IECI · CISO · Phi Kappa Phi</h4>
+          <p>NSA-sponsored cybersecurity workforce development, cyber org involvement, and honors society.</p>
+        </div>
+        <div class="mini-card card">
+          <h4>Retro Games</h4>
+          <p>Browser-based arcade I built for fun — playable demos hosted on GitHub Pages.</p>
+          <a href="https://ronparada.github.io/retro-games/" target="_blank" rel="noopener">ronparada.github.io/retro-games →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- RETRO GAMES EMBED -->
+    <section id="demo" class="section demo-section">
+      <div class="section-header">
+        <span class="section-num">▶</span>
+        <h2>live_demo<span class="accent">.retro_games</span></h2>
+      </div>
+      <p class="section-desc">Embedded from my retro games collection. Press start.</p>
+      <div class="demo-frame-wrap card">
+        <iframe
+          src="https://ronparada.github.io/retro-games/"
+          title="Retro Games Demo"
+          loading="lazy"
+          class="demo-iframe"
+        ></iframe>
+        <a href="https://ronparada.github.io/retro-games/" target="_blank" rel="noopener" class="demo-fullscreen">open_fullscreen() →</a>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="section-header">
+        <span class="section-num">06</span>
+        <h2>contact<span class="accent">.sh</span></h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card card">
+          <h3>Let's connect</h3>
+          <p>Employers, collaborators, and anyone who wants to connect — all welcome.</p>
+          <ul class="contact-list">
+            <li>
+              <span class="contact-key">email</span>
+              <a href="mailto:ronparada@protonmail.com">ronparada@protonmail.com</a>
+            </li>
+            <li>
+              <span class="contact-key">phone</span>
+              <a href="tel:+19093770993">(909) 377-0993</a>
+            </li>
+            <li>
+              <span class="contact-key">linkedin</span>
+              <a href="https://linkedin.com/in/ronaldaparada" target="_blank" rel="noopener">linkedin.com/in/ronaldaparada</a>
+            </li>
+            <li>
+              <span class="contact-key">location</span>
+              <span>San Bernardino, CA</span>
+            </li>
+          </ul>
+        </div>
+        <form class="contact-form card" id="contact-form" action="mailto:ronparada@protonmail.com" method="post" enctype="text/plain">
+          <h3>send_signal()</h3>
+          <label>
+            <span>name</span>
+            <input type="text" name="name" required placeholder="your_name">
+          </label>
+          <label>
+            <span>email</span>
+            <input type="email" name="email" required placeholder="you@domain.com">
+          </label>
+          <label>
+            <span>message</span>
+            <textarea name="message" rows="4" required placeholder="// what's on your mind?"></textarea>
+          </label>
+          <button type="submit" class="btn btn-primary">transmit()</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Ronald A. Parada · built with curiosity and caffeine · <span class="footer-blink">█</span></p>
+  </footer>
+
+  <!-- INTERACTIVE TERMINAL -->
+  <div class="terminal-dock" id="terminal-dock">
+    <div class="terminal-dock-bar">
+      <span class="dot red"></span>
+      <span class="dot yellow"></span>
+      <span class="dot green"></span>
+      <span class="terminal-title">~/portfolio — bash</span>
+      <button class="terminal-toggle" id="terminal-toggle" aria-label="Toggle terminal">_</button>
+    </div>
+    <div class="terminal-dock-body" id="terminal-body">
+      <div class="terminal-history" id="terminal-history">
+        <div class="terminal-line output">Type <span class="cmd-hint">help</span> to see available commands.</div>
+      </div>
+      <form class="terminal-input-row" id="terminal-form">
+        <span class="prompt">visitor@portfolio:~$</span>
+        <input type="text" id="terminal-input" autocomplete="off" spellcheck="false" aria-label="Terminal command input">
+      </form>
+    </div>
+  </div>
+
+  <script src="js/data.js?v=5"></script>
+  <script src="js/terminal.js?v=5"></script>
+  <script src="js/main.js?v=5"></script>
+</body>
+</html>
