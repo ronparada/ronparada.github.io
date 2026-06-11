@@ -1,7 +1,8 @@
 (function () {
   const form = document.getElementById('contact-form');
   const statusEl = document.getElementById('form-status');
-  if (!form) return;
+  const submitBtn = document.getElementById('contact-submit');
+  if (!form || !submitBtn) return;
 
   const nameInput = document.getElementById('contact-name');
   const emailInput = document.getElementById('contact-email');
@@ -10,12 +11,17 @@
   const formspreeId = (typeof SITE_CONFIG !== 'undefined' && SITE_CONFIG.formspreeId) || 'xaqzpokl';
   const endpoint = `https://formspree.io/f/${formspreeId}`;
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
+  if (location.protocol !== 'https:' && !location.hostname.includes('localhost') && !location.hostname.includes('127.0.0.1')) {
+    showStatus('Open https://ronparada.github.io to use the contact form securely.', 'error');
+  }
 
+  form.addEventListener('submit', (e) => e.preventDefault());
+
+  submitBtn.addEventListener('click', sendMessage);
+
+  async function sendMessage() {
     if (honeypot && honeypot.value) return;
 
-    const btn = form.querySelector('button[type="submit"]');
     const name = nameInput.value.trim();
     const email = emailInput.value.trim();
     const message = messageInput.value.trim();
@@ -30,8 +36,13 @@
       return;
     }
 
-    btn.disabled = true;
-    btn.textContent = 'transmitting...';
+    if (location.protocol !== 'https:' && location.hostname.includes('localhost')) {
+      showStatus('Local preview — use https://ronparada.github.io to send for real.', 'error');
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'transmitting...';
     showStatus('', '');
 
     try {
@@ -55,20 +66,20 @@
       if (res.ok) {
         form.reset();
         showStatus('Message sent. I\'ll get back to you.', 'success');
-        btn.textContent = 'sent ✓';
+        submitBtn.textContent = 'sent ✓';
       } else {
         const errMsg = data.error || Object.values(data.errors || {}).flat().join(' ') || `Error ${res.status}`;
-        showStatus(`${errMsg} — try email directly.`, 'error');
-        btn.textContent = 'transmit()';
+        showStatus(`${errMsg}`, 'error');
+        submitBtn.textContent = 'transmit()';
       }
     } catch (err) {
-      showStatus(`Network error — try email directly. (${err.message})`, 'error');
-      btn.textContent = 'transmit()';
+      showStatus(`Could not send — email ronparada@protonmail.com directly. (${err.message})`, 'error');
+      submitBtn.textContent = 'transmit()';
     } finally {
-      btn.disabled = false;
-      if (btn.textContent === 'transmitting...') btn.textContent = 'transmit()';
+      submitBtn.disabled = false;
+      if (submitBtn.textContent === 'transmitting...') submitBtn.textContent = 'transmit()';
     }
-  });
+  }
 
   function showStatus(msg, type) {
     if (!statusEl) return;

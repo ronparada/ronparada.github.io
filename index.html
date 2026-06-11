@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=8">
+  <link rel="stylesheet" href="css/style.css?v=9">
 </head>
 <body>
   <div class="scanlines" aria-hidden="true"></div>
@@ -234,7 +234,7 @@
             </li>
           </ul>
         </div>
-        <form class="contact-form card" id="contact-form" action="https://formspree.io/f/xaqzpokl" method="POST" novalidate>
+        <form class="contact-form card" id="contact-form" novalidate>
           <h3>send_signal()</h3>
           <label class="hp-field" aria-hidden="true">
             <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
@@ -252,14 +252,14 @@
             <textarea id="contact-message" name="message" rows="4" required maxlength="2000" placeholder="// what's on your mind?"></textarea>
           </label>
           <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
-          <button type="submit" class="btn btn-primary">transmit()</button>
+          <button type="button" id="contact-submit" class="btn btn-primary">transmit()</button>
         </form>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>© 2026 Ronald Parada · built with curiosity and caffeine · <span class="footer-blink">█</span> · <span id="build-tag">v8</span></p>
+    <p>© 2026 Ronald Parada · built with curiosity and caffeine · <span class="footer-blink">█</span> · <span id="build-tag">v9</span></p>
   </footer>
 
   <!-- INTERACTIVE TERMINAL -->
@@ -282,11 +282,11 @@
     </div>
   </div>
 
-  <script src="js/config.js?v=8"></script>
-  <script src="js/security.js?v=8"></script>
-  <script src="js/data.js?v=8"></script>
-  <script src="js/terminal.js?v=8"></script>
-  <script src="js/main.js?v=8"></script>
-  <script src="js/contact.js?v=8"></script>
+  <script src="js/config.js?v=9"></script>
+  <script src="js/security.js?v=9"></script>
+  <script src="js/data.js?v=9"></script>
+  <script src="js/terminal.js?v=9"></script>
+  <script src="js/main.js?v=9"></script>
+  <script src="js/contact.js?v=9"></script>
 </body>
 </html>
