@@ -131,19 +131,25 @@ const PORTFOLIO_DATA = {
   skills: [
     'Ethical Hacking', 'Network Security', 'Wireshark', 'Penetration Testing',
     'Active Directory', 'Firewall Hardening', 'Incident Response', 'Threat Analysis',
+    'Digital Forensics', 'Autopsy', 'NIST 800-53', 'FISMA',
     'Zero Trust Architecture', 'RBAC', 'Python', 'HTML/CSS/JS', 'Web Development',
     'Linux', 'Windows Server', 'Kali Linux', 'SQL', 'Snort', 'CSET',
     'Network Monitoring', 'DNS Filtering', 'VPN/Tailscale', 'SSH', 'Troubleshooting',
-    'Wazuh', 'SIEM', 'Docker', 'OpenSearch', 'BadUSB', 'systemd', 'Discord.py',
-    'Embedded Firmware', 'Plex', 'Jellyfin', 'Meshtastic',
+    'Wazuh', 'SIEM', 'Docker', 'OpenSearch', 'Proxmox', 'Ollama',
+    'BadUSB', 'systemd', 'Discord.py', 'Embedded Firmware', 'Plex', 'Jellyfin', 'Meshtastic',
     'Spanish (Fluent)',
   ],
 
-  certifications: [
-    { name: 'CompTIA Security+ (SY0-701)', expires: '07/2028' },
-    { name: 'Certified in Cybersecurity (ISC² CC)', expires: '01/2027' },
-    { name: 'Guard Card (STCLMS)', expires: '11/2025' },
-  ],
+  certifications: {
+    professional: [
+      { name: 'CompTIA Security+ ce', detail: 'Expires Jul 2028' },
+      { name: 'Certified in Cybersecurity (CC)', detail: 'ISC² · Expires Jan 2027' },
+    ],
+    labs: [
+      { name: 'TestOut Linux Pro', detail: 'TestOut · Aug 2025' },
+      { name: 'TestOut Routing and Switching Pro', detail: 'TestOut · Aug 2025' },
+    ],
+  },
 
   education: [
     {

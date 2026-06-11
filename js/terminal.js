@@ -41,7 +41,7 @@
     whoami: {
       desc: 'About Ron',
       run: () => [
-        'Ronald A. Parada',
+        'Ronald Parada',
         'MS Cybersecurity @ CSUSB — graduated May 16, 2026 (GPA 4.00)',
         'Graduate Assistant · church · Coyote Karate Academy VP',
         'Security+ · ISC² CC · homelab builder · web dev',
@@ -50,10 +50,15 @@
     },
     certs: {
       desc: 'List certifications',
-      run: () =>
-        PORTFOLIO_DATA.certifications.map(
-          (c) => `  <span class="success">✓</span> ${c.name} <span class="info">(exp ${c.expires})</span>`
-        ),
+      run: () => {
+        const { professional, labs } = PORTFOLIO_DATA.certifications;
+        return [
+          '<span class="info">Professional:</span>',
+          ...professional.map((c) => `  <span class="success">✓</span> ${escapeHtml(c.name)} <span class="info">(${escapeHtml(c.detail)})</span>`),
+          '<span class="info">Hands-on labs:</span>',
+          ...labs.map((c) => `  <span class="success">✓</span> ${escapeHtml(c.name)} <span class="info">(${escapeHtml(c.detail)})</span>`),
+        ];
+      },
     },
     clear: {
       desc: 'Clear terminal',
@@ -98,7 +103,7 @@
   function printInput(cmd) {
     const div = document.createElement('div');
     div.className = 'terminal-line input-line';
-    div.innerHTML = `<span class="prompt">visitor@portfolio:~$</span> <span class="cmd">${cmd}</span>`;
+    div.innerHTML = `<span class="prompt">visitor@portfolio:~$</span> <span class="cmd">${escapeHtml(cmd)}</span>`;
     historyEl.appendChild(div);
   }
 
@@ -113,7 +118,7 @@
     const id = PROJECT_ALIASES[alias] || alias;
     const project = PORTFOLIO_DATA.projects.find((p) => p.id === id);
     if (!project) {
-      return [`<span class="error">Unknown project: ${args[0]}</span>`];
+      return [`<span class="error">Unknown project: ${escapeHtml(args[0])}</span>`];
     }
     if (project.url) {
       window.open(project.url, '_blank');
@@ -150,7 +155,7 @@
     const handler = COMMANDS[cmd];
     if (!handler) {
       printLines([
-        `<span class="error">Command not found: ${cmd}</span>`,
+        `<span class="error">Command not found: ${escapeHtml(cmd)}</span>`,
         'Type <span class="cmd-hint">help</span> for available commands.',
       ]);
       return;

@@ -1,6 +1,10 @@
 (function () {
   const { projects, labProjects, skills, certifications, education, bootSequence } = PORTFOLIO_DATA;
 
+  function esc(str) {
+    return typeof escapeHtml === 'function' ? escapeHtml(str) : str;
+  }
+
   // ── Boot sequence typing ──
   function runBootSequence() {
     const output = document.getElementById('boot-output');
@@ -47,7 +51,7 @@
   function initHeroTyping() {
     const nameEl = document.getElementById('typed-name');
     const subEl = document.getElementById('typed-subtitle');
-    const name = 'Ronald A. Parada';
+    const name = 'Ronald Parada';
     const subtitle = '// cybersecurity grad · graduate assistant · web dev · homelab builder';
 
     setTimeout(() => {
@@ -63,19 +67,19 @@
     grid.innerHTML = projects
       .map(
         (p) => `
-        <article class="project-card ${p.featured ? 'featured' : ''}" data-project-id="${p.id}">
+        <article class="project-card ${p.featured ? 'featured' : ''}" data-project-id="${esc(p.id)}">
           <div class="project-meta">
-            <span class="project-category">${p.category}</span>
+            <span class="project-category">${esc(p.category)}</span>
             ${p.live ? '<span class="project-live">LIVE</span>' : ''}
           </div>
-          <h3>${p.title}</h3>
-          <p>${p.description}</p>
+          <h3>${esc(p.title)}</h3>
+          <p>${esc(p.description)}</p>
           <div class="project-tech">
-            ${p.tech.map((t) => `<span class="tech-tag">${t}</span>`).join('')}
+            ${p.tech.map((t) => `<span class="tech-tag">${esc(t)}</span>`).join('')}
           </div>
           ${
             p.url
-              ? `<a href="${p.url}" target="_blank" rel="noopener" class="project-link">visit_site() →</a>`
+              ? `<a href="${esc(p.url)}" target="_blank" rel="noopener noreferrer" class="project-link">visit_site() →</a>`
               : `<span class="project-link" style="color: var(--text-dim)">academic_project — no live URL</span>`
           }
         </article>`
@@ -89,12 +93,12 @@
     grid.innerHTML = labProjects
       .map(
         (p) => `
-        <article class="lab-card ${p.sideProject ? 'side-project' : ''}" data-lab-id="${p.id}">
+        <article class="lab-card ${p.sideProject ? 'side-project' : ''}" data-lab-id="${esc(p.id)}">
           <div class="lab-icon">${p.icon}</div>
-          <h3>${p.title}${p.sideProject ? ' <span class="side-badge">side project</span>' : ''}</h3>
-          <p>${p.description}</p>
+          <h3>${esc(p.title)}${p.sideProject ? ' <span class="side-badge">side project</span>' : ''}</h3>
+          <p>${esc(p.description)}</p>
           <div class="lab-tags">
-            ${p.tags.map((t) => `<span class="lab-tag">${t}</span>`).join('')}
+            ${p.tags.map((t) => `<span class="lab-tag">${esc(t)}</span>`).join('')}
           </div>
         </article>`
       )
@@ -104,26 +108,30 @@
   // ── Render skills ──
   function renderSkills() {
     document.getElementById('skill-tags').innerHTML = skills
-      .map((s) => `<span class="skill-tag">${s}</span>`)
+      .map((s) => `<span class="skill-tag">${esc(s)}</span>`)
       .join('');
 
-    document.getElementById('cert-list').innerHTML = certifications
-      .map(
-        (c) => `
+    const certHtml = (list) =>
+      list
+        .map(
+          (c) => `
         <li>
-          <strong>${c.name}</strong>
-          <span>Expires ${c.expires}</span>
+          <strong>${esc(c.name)}</strong>
+          <span>${esc(c.detail)}</span>
         </li>`
-      )
-      .join('');
+        )
+        .join('');
+
+    document.getElementById('cert-professional').innerHTML = certHtml(certifications.professional);
+    document.getElementById('cert-labs').innerHTML = certHtml(certifications.labs);
 
     document.getElementById('edu-list').innerHTML = education
       .map(
         (e) => `
         <div class="edu-item">
-          <strong>${e.degree}</strong>
-          <span>${e.school} · ${e.period}</span>
-          <span>${e.note}</span>
+          <strong>${esc(e.degree)}</strong>
+          <span>${esc(e.school)} · ${esc(e.period)}</span>
+          <span>${esc(e.note)}</span>
         </div>`
       )
       .join('');
@@ -201,15 +209,6 @@
     });
   }
 
-  // ── Contact form feedback ──
-  function initContactForm() {
-    const form = document.getElementById('contact-form');
-    form.addEventListener('submit', () => {
-      const btn = form.querySelector('button');
-      btn.textContent = 'transmitting...';
-    });
-  }
-
   // ── Init ──
   document.addEventListener('DOMContentLoaded', () => {
     runBootSequence();
@@ -220,6 +219,5 @@
     initScrollReveal();
     initNavigation();
     initDiscordHint();
-    initContactForm();
   });
 })();
