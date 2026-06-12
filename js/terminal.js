@@ -20,7 +20,7 @@
         '  <span class="cmd-hint">skills</span>      — scroll to skills & certs',
         '  <span class="cmd-hint">community</span>   — scroll to leadership & involvement',
         '  <span class="cmd-hint">contact</span>     — scroll to contact',
-        '  <span class="cmd-hint">demo</span>        — scroll to retro games demo',
+        '  <span class="cmd-hint">demo</span>        — scroll to homelab map demo',
         '  <span class="cmd-hint">play</span>        — open retro games in new tab',
         '  <span class="cmd-hint">open &lt;name&gt;</span> — open a project (e.g. open karate)',
         '  <span class="cmd-hint">whoami</span>      — who is Ron?',
@@ -34,7 +34,7 @@
     skills: { desc: 'Go to skills', run: () => scrollTo('skills') },
     community: { desc: 'Go to community', run: () => scrollTo('community') },
     contact: { desc: 'Go to contact', run: () => scrollTo('contact') },
-    demo: { desc: 'Go to live demo', run: () => scrollTo('demo') },
+    demo: { desc: 'Go to homelab map', run: () => scrollTo('demo') },
     play: {
       desc: 'Open retro games',
       run: () => {
