@@ -99,6 +99,7 @@ const PORTFOLIO_DATA = {
     {
       id: 'meshtastic',
       title: 'Meshtastic Network + Discord Bridge',
+      github: 'https://github.com/ronparada/meshtastic-discord-bridge',
       icon: '📡',
       description: 'Built a Python Discord bot that bridges a 3-node off-grid LoRa mesh (T-Beam ROUTER_CLIENT, Wio Tracker, T-Deck) to Discord in real time. Connects via TCP to the T-Beam\'s WiFi API, routes packets to 5 dedicated Discord channels by mesh channel index, distinguishes DMs from broadcast traffic, and auto-reconnects on link loss — running as a systemd service on the Pi 4.',
       tags: ['Meshtastic', 'LoRa', 'Python', 'Discord.py', 'T-Beam', 'Wio Tracker', 'T-Deck', 'TCP/IP', 'systemd'],

@@ -54,15 +54,30 @@
 
   function initHeroTyping() {
     const nameEl = document.getElementById('typed-name');
-    const subEl = document.getElementById('typed-subtitle');
     const name = 'Ronald Parada';
-    const subtitle = '// cybersecurity grad · graduate assistant · web dev · homelab builder';
 
-    setTimeout(() => {
-      typeText(nameEl, name, 60, () => {
-        setTimeout(() => typeText(subEl, subtitle, 28), 300);
-      });
-    }, 2800);
+    setTimeout(() => typeText(nameEl, name, 60), 2800);
+  }
+
+  function initProfilePhoto() {
+    const img = document.getElementById('profile-img');
+    if (!img) return;
+    img.addEventListener('load', () => img.classList.add('loaded'));
+    img.addEventListener('error', () => img.classList.remove('loaded'));
+    if (img.complete && img.naturalWidth > 0) img.classList.add('loaded');
+  }
+
+  function initResumeRequest() {
+    const btn = document.getElementById('request-resume');
+    const message = document.getElementById('contact-message');
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+      if (message) {
+        message.value = 'Hi Ronald — I\'d like to request a copy of your resume.';
+        message.focus();
+      }
+    });
   }
 
   // ── Render projects ──
@@ -104,6 +119,7 @@
           <div class="lab-tags">
             ${p.tags.map((t) => `<span class="lab-tag">${esc(t)}</span>`).join('')}
           </div>
+          ${p.github ? `<a href="${esc(p.github)}" target="_blank" rel="noopener noreferrer" class="project-link">view_code() →</a>` : ''}
         </article>`
       )
       .join('');
@@ -223,5 +239,7 @@
     initScrollReveal();
     initNavigation();
     initDiscordHint();
+    initProfilePhoto();
+    initResumeRequest();
   });
 })();

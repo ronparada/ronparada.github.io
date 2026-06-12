@@ -25,6 +25,7 @@
         '  <span class="cmd-hint">open &lt;name&gt;</span> — open a project (e.g. open karate)',
         '  <span class="cmd-hint">whoami</span>      — who is Ron?',
         '  <span class="cmd-hint">certs</span>       — list certifications',
+        '  <span class="cmd-hint">github</span>      — open GitHub profile',
         '  <span class="cmd-hint">clear</span>       — clear terminal output',
       ],
     },
@@ -42,14 +43,21 @@
         return ['<span class="success">Launching retro games...</span>'];
       },
     },
+    github: {
+      desc: 'Open GitHub profile',
+      run: () => {
+        window.open('https://github.com/ronparada', '_blank');
+        return ['<span class="success">Opening github.com/ronparada</span>'];
+      },
+    },
     whoami: {
       desc: 'About Ron',
       run: () => [
         'Ronald Parada',
         'MS Cybersecurity @ CSUSB — graduated May 16, 2026 (GPA 4.00)',
-        'Graduate Assistant · church · Coyote Karate Academy VP',
-        'Security+ · ISC² CC · homelab builder · web dev',
-        'San Bernardino, CA — <span class="info">ronparada@protonmail.com</span>',
+        'Open to SOC · Security Analyst · IT Support · Security Engineering',
+        'Security+ · ISC² CC · bilingual EN/ES · homelab SIEM builder',
+        'github.com/ronparada — <span class="info">ronparada@protonmail.com</span>',
       ],
     },
     certs: {

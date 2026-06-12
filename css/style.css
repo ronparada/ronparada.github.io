@@ -140,6 +140,22 @@ a:hover { color: var(--green); }
   background: var(--green-dim);
 }
 
+.nav-github {
+  font-family: var(--font);
+  font-size: 0.75rem;
+  padding: 0.35rem 0.65rem;
+  color: var(--text-dim);
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  transition: all 0.2s;
+}
+
+.nav-github:hover {
+  color: var(--green);
+  border-color: var(--green-dim);
+  background: var(--green-dim);
+}
+
 /* ── Sections ── */
 .section {
   max-width: 1200px;
@@ -255,11 +271,24 @@ a:hover { color: var(--green); }
   50% { opacity: 0; }
 }
 
-.hero-sub {
+.hero-roles {
+  color: var(--text);
+  font-size: 0.88rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.hero-roles strong { color: var(--cyan); font-weight: 500; }
+
+.hero-meta {
   color: var(--text-dim);
-  font-size: 0.9rem;
-  margin-bottom: 1.5rem;
-  min-height: 1.5em;
+  font-size: 0.8rem;
+  margin-bottom: 1.25rem;
+}
+
+.hero-actions-secondary {
+  margin-top: -0.25rem;
+  margin-bottom: 0.25rem;
 }
 
 .hero-actions {
@@ -332,11 +361,75 @@ a:hover { color: var(--green); }
   color: var(--text-dim);
 }
 
+.honors-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.honor-badge {
+  font-size: 0.68rem;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--cyan);
+  background: var(--bg-card);
+}
+
 /* ── About ── */
 .about-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: auto 2fr 1fr;
   gap: 2rem;
+  align-items: start;
+}
+
+.about-photo {
+  padding: 0.75rem;
+  text-align: center;
+  position: relative;
+  width: 180px;
+}
+
+.profile-img {
+  width: 160px;
+  height: 160px;
+  border-radius: var(--radius);
+  border: 2px solid var(--green-dim);
+  object-fit: cover;
+  display: none;
+}
+
+.profile-img.loaded { display: block; }
+
+.profile-img.loaded + .profile-placeholder { display: none; }
+
+.profile-placeholder {
+  width: 160px;
+  height: 160px;
+  margin: 0 auto;
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--bg);
+}
+
+.profile-initials {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--green);
+}
+
+.profile-hint {
+  font-size: 0.6rem;
+  color: var(--text-dim);
 }
 
 .about-text p {
@@ -949,6 +1042,8 @@ body.terminal-collapsed .terminal-dock-body {
   .community-extras {
     grid-template-columns: 1fr;
   }
+
+  .about-photo { width: 100%; }
 
   .community-card { flex-direction: column; }
 
