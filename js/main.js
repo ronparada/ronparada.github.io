@@ -64,6 +64,8 @@
     if (!img) return;
     img.addEventListener('load', () => img.classList.add('loaded'));
     img.addEventListener('error', () => img.classList.remove('loaded'));
+    img.addEventListener('contextmenu', (e) => e.preventDefault());
+    img.addEventListener('dragstart', (e) => e.preventDefault());
     if (img.complete && img.naturalWidth > 0) img.classList.add('loaded');
   }
 
