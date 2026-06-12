@@ -192,7 +192,11 @@ a:hover { color: var(--green); }
 /* ── Intro (photo + identity + about) ── */
 .intro-section {
   padding-top: 6.5rem;
-  padding-bottom: 2.5rem;
+  padding-bottom: 1rem;
+}
+
+.intro-section + .section {
+  padding-top: 2.5rem;
 }
 
 .intro-profile {
@@ -397,17 +401,25 @@ a:hover { color: var(--green); }
 }
 
 /* ── About ── */
-.intro-about-header {
-  margin-top: 2rem;
-  padding-top: 1.5rem;
+.about-panel {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 1.5rem 2rem;
+  align-items: start;
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
   border-top: 1px solid var(--border);
 }
 
-.about-body {
-  display: grid;
-  grid-template-columns: 1.6fr 1fr;
-  gap: 2rem;
-  align-items: start;
+.intro-about-header {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  padding-top: 0;
+  border-top: none;
+}
+
+.about-main {
+  min-width: 0;
 }
 
 .about-photo.card {
@@ -488,10 +500,14 @@ a:hover { color: var(--green); }
 }
 
 .about-text p {
-  margin-bottom: 1rem;
+  margin-bottom: 0.85rem;
   color: var(--text);
   font-size: 0.88rem;
   line-height: 1.65;
+}
+
+.about-text p:last-child {
+  margin-bottom: 0;
 }
 
 .about-text strong { color: var(--green); }
@@ -1106,7 +1122,7 @@ body.terminal-collapsed .terminal-dock-body {
 /* ── Responsive ── */
 @media (max-width: 900px) {
   .intro-profile,
-  .about-body,
+  .about-panel,
   .skills-layout,
   .contact-grid,
   .community-extras {
