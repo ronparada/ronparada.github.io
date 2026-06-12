@@ -6,7 +6,7 @@
   const NODES = {
     pihole: 'Pi-hole on Raspberry Pi Zero 2 W — network-wide DNS filtering, blocks malicious domains before they resolve.',
     pi4: 'Ubuntu Server on Raspberry Pi 4 — Plex, Jellyfin, Meshtastic Discord bridge, SSH + Tailscale remote admin.',
-    wazuh: 'Wazuh 4.11 SIEM on Mac Mini (Docker/Colima) — threat detection, FIM, vuln scans, OpenSearch dashboard.',
+    wazuh: 'Wazuh SIEM on Mac Mini (Docker/Colima) — threat detection, FIM, vuln scans, OpenSearch dashboard.',
     mesh: '3-node LoRa mesh (T-Beam, Wio Tracker, T-Deck) — Python Discord bridge, 5-channel routing, systemd service.',
     ai: 'Self-hosted AI agent stack — Telegram + Discord bots, local automation, private and under my control.',
   };
@@ -33,6 +33,13 @@
   const scanOutput = document.getElementById('scan-output');
 
   if (!grid || !detail) return;
+
+  const defaultNode = grid.querySelector('[data-node="wazuh"]');
+  if (defaultNode) {
+    defaultNode.classList.add('active');
+    detail.textContent = NODES.wazuh;
+    detail.closest('.topo-detail')?.classList.add('active');
+  }
 
   grid.addEventListener('click', (e) => {
     const node = e.target.closest('.topo-node');

@@ -18,7 +18,7 @@
         '  <span class="cmd-hint">projects</span>    — scroll to projects',
         '  <span class="cmd-hint">lab</span>         — scroll to cyber lab',
         '  <span class="cmd-hint">skills</span>      — scroll to skills & certs',
-        '  <span class="cmd-hint">community</span>   — scroll to leadership & involvement',
+        '  <span class="cmd-hint">leadership</span>  — scroll to leadership & involvement',
         '  <span class="cmd-hint">contact</span>     — scroll to contact',
         '  <span class="cmd-hint">demo</span>        — scroll to homelab map demo',
         '  <span class="cmd-hint">play</span>        — open retro games in new tab',
@@ -33,7 +33,8 @@
     projects: { desc: 'Go to projects', run: () => scrollTo('projects') },
     lab: { desc: 'Go to cyber lab', run: () => scrollTo('lab') },
     skills: { desc: 'Go to skills', run: () => scrollTo('skills') },
-    community: { desc: 'Go to community', run: () => scrollTo('community') },
+    leadership: { desc: 'Go to leadership', run: () => scrollTo('leadership') },
+    community: { desc: 'Go to leadership (alias)', run: () => scrollTo('leadership') },
     contact: { desc: 'Go to contact', run: () => scrollTo('contact') },
     demo: { desc: 'Go to homelab map', run: () => scrollTo('demo') },
     play: {

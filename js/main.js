@@ -56,16 +56,27 @@
     const nameEl = document.getElementById('typed-name');
     const name = 'Ronald Parada';
 
-    setTimeout(() => typeText(nameEl, name, 60), 2800);
+    setTimeout(() => typeText(nameEl, name, 60), 1400);
   }
 
   function initProfilePhoto() {
     const img = document.getElementById('profile-img');
-    if (!img) return;
+    const frame = document.getElementById('profile-photo-frame');
+    if (!img || !frame) return;
+
+    const blockImageActions = (e) => e.preventDefault();
+
+    frame.setAttribute('role', 'img');
+    frame.setAttribute('aria-label', 'Ronald Parada');
+
     img.addEventListener('load', () => img.classList.add('loaded'));
     img.addEventListener('error', () => img.classList.remove('loaded'));
-    img.addEventListener('contextmenu', (e) => e.preventDefault());
-    img.addEventListener('dragstart', (e) => e.preventDefault());
+    [img, frame].forEach((el) => {
+      el.addEventListener('contextmenu', blockImageActions);
+      el.addEventListener('dragstart', blockImageActions);
+    });
+    frame.querySelector('.profile-photo-shield')?.addEventListener('mousedown', blockImageActions);
+
     if (img.complete && img.naturalWidth > 0) img.classList.add('loaded');
   }
 
@@ -73,7 +84,24 @@
     const btn = document.getElementById('request-resume');
     const message = document.getElementById('contact-message');
     if (!btn) return;
-    btn.addEventListener('click', () => {
+
+    btn.addEventListener('click', async () => {
+      try {
+        const res = await fetch('resume.pdf', { method: 'HEAD' });
+        if (res.ok) {
+          const link = document.createElement('a');
+          link.href = 'resume.pdf';
+          link.download = 'Ronald-Parada-Resume.pdf';
+          link.rel = 'noopener';
+          document.body.appendChild(link);
+          link.click();
+          link.remove();
+          return;
+        }
+      } catch (_) {
+        /* resume.pdf not deployed — fall back to contact form */
+      }
+
       document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
       if (message) {
         message.value = 'Hi Ronald — I\'d like to request a copy of your resume.';

@@ -14,15 +14,21 @@
   <meta property="og:title" content="Ronald Parada | Cybersecurity Portfolio">
   <meta property="og:description" content="MS Cybersecurity graduate · Security+ · bilingual · homelab SIEM builder. Open to SOC, security analyst, IT, and security engineering roles.">
   <meta property="og:site_name" content="ronparada.com">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://ronparada.com/assets/og-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Ronald Parada — Cybersecurity Portfolio">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Ronald Parada | Cybersecurity Portfolio">
   <meta name="twitter:description" content="MS Cybersecurity graduate · Security+ · bilingual · homelab SIEM builder. Open to SOC, security analyst, IT, and security engineering roles.">
+  <meta name="twitter:image" content="https://ronparada.com/assets/og-card.png">
   <title>Ronald Parada | Cybersecurity Portfolio</title>
+  <script type="application/ld+json" src="assets/person.schema.json"></script>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=14">
+  <link rel="stylesheet" href="css/style.css?v=16">
 </head>
 <body>
   <div class="scanlines" aria-hidden="true"></div>
@@ -36,7 +42,8 @@
         <button data-section="projects">projects</button>
         <button data-section="lab">lab</button>
         <button data-section="skills">skills</button>
-        <button data-section="community">community</button>
+        <button data-section="leadership">leadership</button>
+        <button data-section="demo">demo</button>
         <button data-section="contact">contact</button>
         <a href="https://github.com/ronparada" target="_blank" rel="noopener noreferrer" class="nav-github">github</a>
       </nav>
@@ -44,17 +51,29 @@
   </header>
 
   <main>
-    <!-- HERO -->
-    <section id="hero" class="section hero">
-      <div class="hero-grid">
-        <div class="boot-terminal" id="boot-terminal" aria-label="System boot sequence">
-          <div class="terminal-bar">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
-            <span class="terminal-title">boot_sequence.sh</span>
+    <!-- INTRO: photo, identity, about -->
+    <section id="about" class="section intro-section">
+      <div class="intro-profile">
+        <div class="intro-left">
+          <div class="about-photo card" id="about-photo">
+            <div class="profile-photo-frame" id="profile-photo-frame">
+              <img src="assets/photo.png" alt="" class="profile-img" id="profile-img" width="176" height="220" draggable="false" decoding="async" referrerpolicy="no-referrer">
+              <div class="profile-photo-shield" aria-hidden="true"></div>
+              <div class="profile-placeholder" id="profile-placeholder" aria-hidden="true">
+                <span class="profile-initials">RP</span>
+                <span class="profile-hint">photo loading...</span>
+              </div>
+            </div>
           </div>
-          <pre class="boot-output" id="boot-output"></pre>
+          <div class="boot-terminal boot-compact" id="boot-terminal" aria-label="System boot sequence">
+            <div class="terminal-bar">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+              <span class="terminal-title">boot_sequence.sh</span>
+            </div>
+            <pre class="boot-output" id="boot-output"></pre>
+          </div>
         </div>
         <div class="hero-content">
           <p class="hero-tag">MS Cybersecurity Graduate · Security+ Certified · Homelab Builder</p>
@@ -63,7 +82,7 @@
             <span id="typed-name"></span><span class="cursor-blink">█</span>
           </h1>
           <p class="hero-roles">Open to <strong>SOC</strong>, <strong>Security Analyst</strong>, <strong>IT Support</strong>, and <strong>Security Engineering</strong> roles.</p>
-          <p class="hero-meta">Bilingual English/Spanish · Southern California</p>
+          <p class="hero-meta">Bilingual English/Spanish · San Bernardino, CA</p>
           <div class="hero-actions">
             <a href="#projects" class="btn btn-primary" data-section="projects">view_projects()</a>
             <a href="#lab" class="btn btn-primary" data-section="lab">view_cyber_lab()</a>
@@ -79,46 +98,31 @@
             <div class="stat"><span class="stat-val">Security+</span><span class="stat-label">Certified</span></div>
             <div class="stat"><span class="stat-val">3</span><span class="stat-label">Live Sites</span></div>
           </div>
+          <div class="honors-strip" aria-label="Honors and distinctions">
+            <span class="honor-badge">Summa Cum Laude</span>
+            <span class="honor-badge">Phi Kappa Phi</span>
+            <span class="honor-badge">IECI · NSA Workforce Dev</span>
+            <span class="honor-badge">ISC² CC</span>
+          </div>
         </div>
       </div>
-      <div class="honors-strip" aria-label="Honors and distinctions">
-        <span class="honor-badge">Summa Cum Laude</span>
-        <span class="honor-badge">Phi Kappa Phi</span>
-        <span class="honor-badge">IECI · NSA Workforce Dev</span>
-        <span class="honor-badge">ISC² CC</span>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="section">
-      <div class="section-header">
+      <div class="section-header intro-about-header">
         <span class="section-num">01</span>
         <h2>about<span class="accent">.md</span></h2>
       </div>
-      <div class="about-grid">
-        <div class="about-photo card" id="about-photo">
-          <img src="assets/photo.png" alt="Ronald Parada" class="profile-img" id="profile-img" width="160" height="200" draggable="false" decoding="async">
-          <div class="profile-placeholder" id="profile-placeholder" aria-hidden="true">
-            <span class="profile-initials">RP</span>
-            <span class="profile-hint">photo loading...</span>
-          </div>
-        </div>
+      <div class="about-body">
         <div class="about-text">
           <p>
-            I'm <strong>Ronald Parada</strong> — I earned my MS in Cybersecurity from CSU San Bernardino
-            (GPA 4.00) and <strong>graduated May 16, 2026</strong>. I'm not a student anymore. I spend my days as a <strong>Graduate Assistant</strong>
-            for cybersecurity courses, at <strong>church</strong> (sound, web, whatever needs fixing),
-            and as <strong>VP of Coyote Karate Academy</strong> at CSUSB.
+            I'm <strong>Ronald Parada</strong> — MS Cybersecurity from CSU San Bernardino (GPA 4.00),
+            <strong>graduated May 16, 2026</strong>. I <strong>spent two years as a Graduate Assistant</strong>
+            in cybersecurity courses at CSUSB. I still handle <strong>church</strong> tech (sound, web)
+            and serve as <strong>VP at Coyote Karate Academy</strong>.
           </p>
           <p>
-            I also build websites, run a growing homelab, and tinker with hardware on evenings
-            and weekends — Meshtastic nodes, RF experiments, that kind of thing. The fun stuff is
-            real, but it's not my day job, and I'm honest about that here.
-          </p>
-          <p>
-            This site is for <em>employers who want a serious hire</em> and anyone curious about
-            what I actually do. Lab projects are described at a high level — no exploit recipes,
-            because ethics matter and I want to be comfortable showing this to anyone.
+            I build websites, run a homelab with SIEM monitoring, and tinker on weekends — Meshtastic,
+            RF, hardware projects. The hobby work is real, but my professional focus is security operations,
+            analysis, and IT support. Everything in the lab section is described at a high level — no exploit
+            recipes, because ethics matter.
           </p>
         </div>
         <div class="about-facts card">
@@ -126,7 +130,7 @@
           <ul class="fact-list">
             <li><span class="key">"location"</span>: <span class="val">"San Bernardino, CA"</span></li>
             <li><span class="key">"degree"</span>: <span class="val">"MS IST — Cybersecurity ✓ May 16, 2026"</span></li>
-            <li><span class="key">"role"</span>: <span class="val">"Graduate Assistant — Cybersecurity"</span></li>
+            <li><span class="key">"focus"</span>: <span class="val">"SOC · Security Analyst · IT Support"</span></li>
             <li><span class="key">"certs"</span>: <span class="val">["Security+", "ISC² CC", "TestOut Linux Pro"]</span></li>
             <li><span class="key">"languages"</span>: <span class="val">["English", "Spanish"]</span></li>
             <li><span class="key">"status"</span>: <span class="val status-open">"open_to_opportunities"</span></li>
@@ -184,8 +188,8 @@
       </div>
     </section>
 
-    <!-- COMMUNITY -->
-    <section id="community" class="section community-section">
+    <!-- LEADERSHIP -->
+    <section id="leadership" class="section community-section">
       <div class="section-header">
         <span class="section-num">05</span>
         <h2>leadership<span class="accent">&amp;involvement</span></h2>
@@ -193,13 +197,13 @@
       <p class="section-desc">What I actually do day to day — teaching, volunteering, and leading.</p>
       <div class="community-extras">
         <div class="mini-card card">
-          <h4>Graduate Assistant — Cybersecurity</h4>
-          <p>Support cybersecurity courses at CSUSB: grading, tutoring, course materials, and helping students work through the hard stuff.</p>
+          <h4>Graduate Assistant — Cybersecurity (2024–2026)</h4>
+          <p>Supported cybersecurity courses at CSUSB: grading, tutoring, course materials, and helping students work through the hard stuff.</p>
         </div>
         <div class="mini-card card">
           <h4>Fresca Unción Church</h4>
           <p>Been going for over a decade — I handle sound, the website, and tech when something breaks.</p>
-          <a href="http://igleciafrescauncion.com/" target="_blank" rel="noopener">igleciafrescauncion.com →</a>
+          <a href="https://igleciafrescauncion.com/" target="_blank" rel="noopener noreferrer">igleciafrescauncion.com →</a>
         </div>
         <div class="mini-card card">
           <h4>Coyote Karate Academy VP</h4>
@@ -221,7 +225,7 @@
     <!-- HOMELAB TOPOLOGY DEMO -->
     <section id="demo" class="section demo-section">
       <div class="section-header">
-        <span class="section-num">▶</span>
+        <span class="section-num">06</span>
         <h2>live_demo<span class="accent">.homelab_map</span></h2>
       </div>
       <p class="section-desc">Click a node to inspect it — abstract view of my home lab stack.</p>
@@ -267,7 +271,7 @@
     <!-- CONTACT -->
     <section id="contact" class="section">
       <div class="section-header">
-        <span class="section-num">06</span>
+        <span class="section-num">07</span>
         <h2>contact<span class="accent">.sh</span></h2>
       </div>
       <div class="contact-grid">
@@ -278,10 +282,6 @@
             <li>
               <span class="contact-key">email</span>
               <a href="mailto:ronparada@protonmail.com">ronparada@protonmail.com</a>
-            </li>
-            <li>
-              <span class="contact-key">phone</span>
-              <a href="tel:+19093770993">(909) 377-0993</a>
             </li>
             <li>
               <span class="contact-key">github</span>
@@ -322,7 +322,7 @@
   </main>
 
   <footer class="site-footer">
-    <p>© 2026 Ronald Parada · built with curiosity and caffeine · <span class="footer-blink">█</span> · <span id="build-tag">v14</span></p>
+    <p>© 2026 Ronald Parada · built with curiosity and caffeine · <span class="footer-blink">█</span> · <span id="build-tag">v16</span></p>
   </footer>
 
   <!-- INTERACTIVE TERMINAL -->
@@ -345,12 +345,12 @@
     </div>
   </div>
 
-  <script src="js/config.js?v=14"></script>
-  <script src="js/security.js?v=14"></script>
-  <script src="js/data.js?v=14"></script>
-  <script src="js/terminal.js?v=14"></script>
-  <script src="js/main.js?v=14"></script>
-  <script src="js/demo.js?v=14"></script>
-  <script src="js/contact.js?v=14"></script>
+  <script src="js/config.js?v=16"></script>
+  <script src="js/security.js?v=16"></script>
+  <script src="js/data.js?v=16"></script>
+  <script src="js/terminal.js?v=16"></script>
+  <script src="js/main.js?v=16"></script>
+  <script src="js/demo.js?v=16"></script>
+  <script src="js/contact.js?v=16"></script>
 </body>
 </html>

@@ -38,7 +38,7 @@ const PORTFOLIO_DATA = {
       category: 'web',
       description: 'Church website I built and maintain — sound and web when something needs fixing at Fresca Unción.',
       tech: ['Web Dev', 'HTML', 'CSS'],
-      url: 'http://igleciafrescauncion.com/',
+      url: 'https://igleciafrescauncion.com/',
       live: true,
       featured: true,
     },
@@ -86,7 +86,7 @@ const PORTFOLIO_DATA = {
       id: 'wazuh-siem',
       title: 'Wazuh SIEM — Mac Mini Home Lab',
       icon: '🛡️',
-      description: 'Self-hosted Wazuh 4.11 stack running in Docker (Colima) on an Apple Silicon Mac Mini, acting as a centralized SIEM for the home lab. Collects and correlates alerts from agents on the Raspberry Pi 4, monitors file integrity, runs vulnerability scans, and surfaces security events through the OpenSearch-backed dashboard — all on local hardware, no cloud dependency.',
+      description: 'Self-hosted Wazuh stack running in Docker (Colima) on an Apple Silicon Mac Mini, acting as a centralized SIEM for the home lab. Collects and correlates alerts from agents on the Raspberry Pi 4, monitors file integrity, runs vulnerability scans, and surfaces security events through the OpenSearch-backed dashboard — all on local hardware, no cloud dependency.',
       tags: ['Wazuh', 'SIEM', 'Docker', 'OpenSearch', 'Threat Detection', 'File Integrity Monitoring', 'Vulnerability Scanning', 'Apple Silicon'],
     },
     {
@@ -115,8 +115,8 @@ const PORTFOLIO_DATA = {
       id: 'bad-beatles',
       title: '"Bad Beatles" — BadUSB Implants',
       icon: '💾',
-      description: 'Custom-programmed ATMEGA32U4 USB keystroke-injection devices for authorized red-team demonstrations. Two dedicated implants: one performs silent host reconnaissance (dumps system info, network config, and saved WiFi credentials to a file), the other establishes a reverse shell back to a Kali listener over Tailscale — working across any network without port forwarding. Demonstrates how a physical-access attack compromises a machine in seconds and why USB security policies matter.',
-      tags: ['BadUSB', 'Red Team Demo', 'ATMEGA32U4', 'Reverse Shell', 'Tailscale', 'Kali Linux', 'Physical Security'],
+      description: 'Custom-programmed ATMEGA32U4 USB devices for authorized red-team demonstrations. Plugged into a machine I own or have written permission to test, they show how fast physical access leads to compromise — and why USB security policies matter. Demo-only; no payloads published.',
+      tags: ['BadUSB', 'Red Team Demo', 'ATMEGA32U4', 'Physical Security', 'USB Policy'],
     },
     {
       id: 'rf-research',
@@ -142,15 +142,10 @@ const PORTFOLIO_DATA = {
   ],
 
   skills: [
-    'Ethical Hacking', 'Network Security', 'Wireshark', 'Penetration Testing',
-    'Active Directory', 'Firewall Hardening', 'Incident Response', 'Threat Analysis',
-    'Digital Forensics', 'Autopsy', 'NIST 800-53', 'FISMA',
-    'Zero Trust Architecture', 'RBAC', 'Python', 'HTML/CSS/JS', 'Web Development',
-    'Linux', 'Windows Server', 'Kali Linux', 'SQL', 'Snort', 'CSET',
-    'Network Monitoring', 'DNS Filtering', 'VPN/Tailscale', 'SSH', 'Troubleshooting',
-    'Wazuh', 'SIEM', 'Docker', 'OpenSearch', 'Proxmox', 'Ollama',
-    'BadUSB', 'systemd', 'Discord.py', 'Embedded Firmware', 'Plex', 'Jellyfin', 'Meshtastic',
-    'Spanish (Fluent)',
+    'Incident Response', 'Network Security', 'SIEM / Wazuh', 'Wireshark',
+    'Penetration Testing', 'Active Directory', 'Linux', 'Python',
+    'Firewall Hardening', 'Threat Analysis', 'NIST 800-53', 'Docker',
+    'Web Development', 'Troubleshooting', 'Spanish (Fluent)',
   ],
 
   certifications: {
