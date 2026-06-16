@@ -60,10 +60,9 @@
   }
 
   function initProfileAvatar() {
-    const img = document.getElementById('profile-avatar');
-    if (!img) return;
-    img.addEventListener('contextmenu', (e) => e.preventDefault());
-    img.addEventListener('dragstart', (e) => e.preventDefault());
+    const frame = document.getElementById('profile-avatar-frame');
+    if (!frame) return;
+    frame.addEventListener('contextmenu', (e) => e.preventDefault());
   }
 
   function initResumeRequest() {
