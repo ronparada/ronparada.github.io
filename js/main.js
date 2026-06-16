@@ -59,25 +59,11 @@
     setTimeout(() => typeText(nameEl, name, 60), 1400);
   }
 
-  function initProfilePhoto() {
-    const img = document.getElementById('profile-img');
-    const frame = document.getElementById('profile-photo-frame');
-    if (!img || !frame) return;
-
-    const blockImageActions = (e) => e.preventDefault();
-
-    frame.setAttribute('role', 'img');
-    frame.setAttribute('aria-label', 'Ronald Parada');
-
-    img.addEventListener('load', () => img.classList.add('loaded'));
-    img.addEventListener('error', () => img.classList.remove('loaded'));
-    [img, frame].forEach((el) => {
-      el.addEventListener('contextmenu', blockImageActions);
-      el.addEventListener('dragstart', blockImageActions);
-    });
-    frame.querySelector('.profile-photo-shield')?.addEventListener('mousedown', blockImageActions);
-
-    if (img.complete && img.naturalWidth > 0) img.classList.add('loaded');
+  function initProfileAvatar() {
+    const img = document.getElementById('profile-avatar');
+    if (!img) return;
+    img.addEventListener('contextmenu', (e) => e.preventDefault());
+    img.addEventListener('dragstart', (e) => e.preventDefault());
   }
 
   function initResumeRequest() {
@@ -269,7 +255,7 @@
     initScrollReveal();
     initNavigation();
     initDiscordHint();
-    initProfilePhoto();
+    initProfileAvatar();
     initResumeRequest();
   });
 })();

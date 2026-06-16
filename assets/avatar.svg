@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 176 220" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0c1220"/>
+      <stop offset="1" stop-color="#0a0e17"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#22d3ee"/>
+      <stop offset="1" stop-color="#00ff9f"/>
+    </linearGradient>
+    <linearGradient id="hood" x1="88" y1="40" x2="88" y2="200">
+      <stop offset="0" stop-color="#1a2744"/>
+      <stop offset="1" stop-color="#0f1524"/>
+    </linearGradient>
+    <pattern id="grid" width="16" height="16" patternUnits="userSpaceOnUse">
+      <path d="M16 0H0V16" stroke="#22d3ee" stroke-width="0.5" opacity="0.08"/>
+    </pattern>
+    <filter id="soft-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="176" height="220" fill="url(#bg)"/>
+  <rect width="176" height="220" fill="url(#grid)"/>
+
+  <!-- monitor glow behind figure -->
+  <ellipse cx="88" cy="118" rx="62" ry="48" fill="#00ff9f" opacity="0.06"/>
+
+  <!-- hood / shoulders silhouette -->
+  <path d="M44 92 C44 62, 62 42, 88 42 C114 42, 132 62, 132 92 L138 200 C138 208, 132 214, 124 214 L52 214 C44 214, 38 208, 38 200 Z" fill="url(#hood)" stroke="#1f2a44" stroke-width="1.5"/>
+  <path d="M52 96 C52 72, 68 56, 88 56 C108 56, 124 72, 124 96" fill="none" stroke="#22d3ee" stroke-width="1.2" opacity="0.35"/>
+
+  <!-- face shadow (no real likeness  abstract) -->
+  <ellipse cx="88" cy="88" rx="22" ry="26" fill="#0a0e17" opacity="0.85"/>
+
+  <!-- terminal visor / glasses bar -->
+  <rect x="62" y="78" width="52" height="10" rx="2" fill="#0a0e17" stroke="url(#glow)" stroke-width="1.2" filter="url(#soft-glow)"/>
+  <rect x="66" y="81" width="18" height="4" rx="1" fill="#00ff9f" opacity="0.85"/>
+  <rect x="92" y="81" width="18" height="4" rx="1" fill="#22d3ee" opacity="0.85"/>
+
+  <!-- prompt badge on chest -->
+  <rect x="58" y="128" width="60" height="28" rx="4" fill="#0a0e17" stroke="#1f2a44" stroke-width="1"/>
+  <text x="66" y="147" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" font-weight="700" fill="#22d3ee">$</text>
+  <text x="78" y="147" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" font-weight="700" fill="#00ff9f">RP</text>
+  <text x="102" y="147" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#00ff9f" opacity="0.9">ˆ</text>
+
+  <!-- status line -->
+  <text x="88" y="178" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="8" fill="#5a6a85">operator@homelab</text>
+  <text x="88" y="192" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="8" fill="#22d3ee" opacity="0.7">status: online</text>
+
+  <!-- corner brackets -->
+  <path d="M12 12 H24 V18 H18 V24 H12 Z" fill="#00ff9f" opacity="0.5"/>
+  <path d="M164 12 H152 V18 H158 V24 H164 Z" fill="#00ff9f" opacity="0.5"/>
+  <path d="M12 208 H24 V202 H18 V196 H12 Z" fill="#22d3ee" opacity="0.5"/>
+  <path d="M164 208 H152 V202 H158 V196 H164 Z" fill="#22d3ee" opacity="0.5"/>
+</svg>
