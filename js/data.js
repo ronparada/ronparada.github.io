@@ -1,47 +1,8 @@
 /**
  * PORTFOLIO DATA — main content lives here
- *
- * projects[]     → Live sites & academic work (Projects section)
- * labProjects[]  → Homelab cards (Cyber Lab section)
- * skills[]       → Skill tags
- * certifications → professional + labs (Skills section)
- * education[]    → Degree history
- * bootSequence[] → Hero terminal boot text
- *
- * To add a project: copy an existing entry and change id, title, description, tags/url
  */
 const PORTFOLIO_DATA = {
   projects: [
-    {
-      id: 'retro-games',
-      title: 'Retro Games Arcade',
-      category: 'web',
-      description: 'Browser-based retro game collection built and hosted on GitHub Pages. A fun side project — playable demos with a nostalgic feel.',
-      tech: ['HTML', 'CSS', 'JavaScript', 'GitHub Pages'],
-      url: 'https://ronparada.github.io/retro-games/',
-      live: true,
-      featured: true,
-    },
-    {
-      id: 'coyote-karate',
-      title: 'Coyote Karate Academy',
-      category: 'web',
-      description: 'Website for CSUSB\'s Coyote Karate Academy — schedules, info, and the dojo\'s online presence. Built as CKA VP.',
-      tech: ['Web Dev', 'HTML', 'CSS'],
-      url: 'https://coyotekarateacademy.com/',
-      live: true,
-      featured: true,
-    },
-    {
-      id: 'fresca-uncion',
-      title: 'Iglesia Fresca Unción',
-      category: 'web',
-      description: 'Church website I built and maintain — sound and web when something needs fixing at Fresca Unción.',
-      tech: ['Web Dev', 'HTML', 'CSS'],
-      url: 'https://igleciafrescauncion.com/',
-      live: true,
-      featured: true,
-    },
     {
       id: 'capstone',
       title: 'Enterprise Network Capstone',
@@ -63,6 +24,36 @@ const PORTFOLIO_DATA = {
       featured: true,
     },
     {
+      id: 'coyote-karate',
+      title: 'Coyote Karate Academy',
+      category: 'web',
+      description: 'Website for CSUSB\'s Coyote Karate Academy — schedules, info, and the dojo\'s online presence. Built as CKA VP.',
+      tech: ['Web Dev', 'HTML', 'CSS'],
+      url: 'https://coyotekarateacademy.com/',
+      live: true,
+      featured: true,
+    },
+    {
+      id: 'fresca-uncion',
+      title: 'Iglesia Fresca Unción',
+      category: 'web',
+      description: 'Church website I built and maintain — sound and web when something needs fixing at Fresca Unción.',
+      tech: ['Web Dev', 'HTML', 'CSS'],
+      url: 'https://igleciafrescauncion.com/',
+      live: true,
+      featured: false,
+    },
+    {
+      id: 'retro-games',
+      title: 'Retro Games Arcade',
+      category: 'web',
+      description: 'Browser-based retro game collection on GitHub Pages — a side project showing front-end and deployment skills.',
+      tech: ['HTML', 'CSS', 'JavaScript', 'GitHub Pages'],
+      url: 'https://ronparada.github.io/retro-games/',
+      live: true,
+      featured: false,
+    },
+    {
       id: 'student-web',
       title: 'Product Website (Team Project)',
       category: 'academic',
@@ -76,54 +67,32 @@ const PORTFOLIO_DATA = {
 
   labProjects: [
     {
-      id: 'home-security-lab',
-      title: 'Home Security Lab',
-      icon: '🏠',
-      description: 'Multi-device defensive lab: Pi-hole DNS filtering on a Raspberry Pi Zero 2 W blocking malicious domains network-wide, plus Ubuntu Server on a Raspberry Pi 4 with SSH, Tailscale VPN, and KVM Connect for secure remote administration and self-hosted services.',
-      tags: ['Raspberry Pi', 'Pi-hole', 'Tailscale', 'Ubuntu Server', 'SSH', 'KVM Connect'],
-    },
-    {
       id: 'wazuh-siem',
       title: 'Wazuh SIEM — Mac Mini Home Lab',
       icon: '🛡️',
-      description: 'Self-hosted Wazuh stack running in Docker (Colima) on an Apple Silicon Mac Mini, acting as a centralized SIEM for the home lab. Collects and correlates alerts from agents on the Raspberry Pi 4, monitors file integrity, runs vulnerability scans, and surfaces security events through the OpenSearch-backed dashboard — all on local hardware, no cloud dependency.',
-      tags: ['Wazuh', 'SIEM', 'Docker', 'OpenSearch', 'Threat Detection', 'File Integrity Monitoring', 'Vulnerability Scanning', 'Apple Silicon'],
+      description: 'Self-hosted Wazuh stack in Docker on an Apple Silicon Mac Mini — centralized SIEM for the homelab. Agents on Pi 4, file integrity monitoring, vuln scans, OpenSearch dashboard. All local hardware.',
+      tags: ['Wazuh', 'SIEM', 'Docker', 'OpenSearch', 'Threat Detection', 'FIM'],
     },
     {
-      id: 'media-server',
-      title: 'Self-Hosted Media Server',
-      icon: '🎬',
-      description: 'Plex and Jellyfin running 24/7 on a Raspberry Pi 4 with external HDD storage. Accessible locally and remotely via Tailscale.',
-      tags: ['Plex', 'Jellyfin', 'Raspberry Pi', 'Self-Hosted', 'Tailscale'],
-    },
-    {
-      id: 'meshtastic',
-      title: 'Meshtastic Network + Discord Bridge',
-      github: 'https://github.com/ronparada/meshtastic-discord-bridge',
-      icon: '📡',
-      description: 'Built a Python Discord bot that bridges a 3-node off-grid LoRa mesh (T-Beam ROUTER_CLIENT, Wio Tracker, T-Deck) to Discord in real time. Connects via TCP to the T-Beam\'s WiFi API, routes packets to 5 dedicated Discord channels by mesh channel index, distinguishes DMs from broadcast traffic, and auto-reconnects on link loss — running as a systemd service on the Pi 4.',
-      tags: ['Meshtastic', 'LoRa', 'Python', 'Discord.py', 'T-Beam', 'Wio Tracker', 'T-Deck', 'TCP/IP', 'systemd'],
-    },
-    {
-      id: 'ai-automation',
-      title: 'Self-Hosted AI Automation Server',
-      icon: '🤖',
-      description: 'An always-on AI agent stack running on local hardware, with Telegram and Discord bot integrations that automate notifications and task execution across both platforms — private, local, and under my control.',
-      tags: ['AI Agents', 'Telegram', 'Discord', 'Self-Hosted'],
-    },
-    {
-      id: 'bad-beatles',
-      title: '"Bad Beatles" — BadUSB Implants',
-      icon: '💾',
-      description: 'Custom-programmed ATMEGA32U4 USB devices for authorized red-team demonstrations. Plugged into a machine I own or have written permission to test, they show how fast physical access leads to compromise — and why USB security policies matter. Demo-only; no payloads published.',
-      tags: ['BadUSB', 'Red Team Demo', 'ATMEGA32U4', 'Physical Security', 'USB Policy'],
+      id: 'home-security-lab',
+      title: 'Home Security Lab',
+      icon: '🏠',
+      description: 'Pi-hole DNS filtering on Raspberry Pi Zero 2 W plus Ubuntu Server on Pi 4 with SSH, Tailscale VPN, and secure remote admin for self-hosted services.',
+      tags: ['Raspberry Pi', 'Pi-hole', 'Tailscale', 'Ubuntu Server', 'SSH'],
     },
     {
       id: 'rf-research',
       title: 'RF & Wireless Security Research',
       icon: '📻',
-      description: 'Tested Wi-Fi, Bluetooth, and sub-GHz radio attack surfaces with dedicated wireless security hardware in a controlled lab. Deployed Rayhunter on a mobile hotspot to detect IMSI-catcher (fake cell tower) activity.',
+      description: 'Tested Wi-Fi, Bluetooth, and sub-GHz attack surfaces in a controlled lab. Deployed Rayhunter on a mobile hotspot to detect IMSI-catcher activity.',
       tags: ['Wi-Fi', 'Bluetooth', 'Sub-GHz', 'Rayhunter', 'RF Security'],
+    },
+    {
+      id: 'bad-beatles',
+      title: '"Bad Beatles" — BadUSB Demos',
+      icon: '💾',
+      description: 'Custom ATMEGA32U4 USB devices for authorized red-team demos on owned hardware — shows how fast physical access leads to compromise. Demo-only; no payloads published.',
+      tags: ['BadUSB', 'Red Team Demo', 'Physical Security', 'USB Policy'],
     },
     {
       id: 'live-usb-toolkit',
@@ -133,11 +102,37 @@ const PORTFOLIO_DATA = {
       tags: ['Kali Linux', 'Medicat', 'Incident Response'],
     },
     {
+      id: 'meshtastic',
+      title: 'Meshtastic Network + Discord Bridge',
+      github: 'https://github.com/ronparada/meshtastic-discord-bridge',
+      icon: '📡',
+      sideProject: true,
+      description: 'Python Discord bot bridging a 3-node LoRa mesh to Discord in real time — systemd service on Pi 4, 5-channel routing, auto-reconnect.',
+      tags: ['Meshtastic', 'LoRa', 'Python', 'Discord.py', 'systemd'],
+    },
+    {
+      id: 'ai-automation',
+      title: 'Self-Hosted AI Automation Server',
+      icon: '🤖',
+      sideProject: true,
+      description: 'Local AI agent stack with Telegram and Discord bot integrations — private automation under my control.',
+      tags: ['AI Agents', 'Telegram', 'Discord', 'Self-Hosted'],
+    },
+    {
+      id: 'media-server',
+      title: 'Self-Hosted Media Server',
+      icon: '🎬',
+      sideProject: true,
+      description: 'Plex and Jellyfin on Raspberry Pi 4 with external storage — accessible via Tailscale.',
+      tags: ['Plex', 'Jellyfin', 'Raspberry Pi', 'Tailscale'],
+    },
+    {
       id: 'defcon-badge',
-      title: 'DEF CON 32 Badge — Embedded Systems & Firmware',
+      title: 'DEF CON 32 Badge — Firmware',
       icon: '🎮',
-      description: 'Diagnosed and resolved SD card filesystem compatibility issues (FAT32 cluster size) on a Raspberry Pi RP2350-powered DEF CON 32 badge. Flashed custom firmware via the badge bootloader, upgrading from stock to v1.6 — fixing SD read failures and unlocking IR features. Loaded 16 homebrew Game Boy ROMs onto a 32GB card; badge runs bare-metal Game Boy Color emulation (uGB by DmitryGR) on one of the first public RP2350 releases, distributed at DEF CON 32 before Raspberry Pi sold it commercially.',
-      tags: ['RP2350', 'Embedded Firmware', 'FAT32', 'Bootloader', 'Game Boy Emulation', 'Hardware Hacking'],
+      sideProject: true,
+      description: 'Fixed SD filesystem issues on an RP2350 DEF CON 32 badge, flashed custom firmware, and loaded homebrew ROMs — embedded troubleshooting project.',
+      tags: ['RP2350', 'Embedded Firmware', 'FAT32', 'Bootloader'],
     },
   ],
 

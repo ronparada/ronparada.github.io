@@ -312,6 +312,30 @@ a:hover { color: var(--green); }
   margin-bottom: 0.25rem;
 }
 
+.value-strip {
+  list-style: none;
+  margin: 1rem 0 1.25rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+}
+
+.value-strip li {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  padding: 0.2rem 0;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.value-strip li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--green);
+}
+
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -625,6 +649,15 @@ a:hover { color: var(--green); }
 
 .project-link:hover { text-decoration: underline; }
 
+.project-link-muted { color: var(--text-dim); }
+
+.inline-link {
+  color: var(--cyan);
+  font-size: inherit;
+}
+
+.inline-link:hover { color: var(--green); }
+
 /* ── Lab ── */
 .lab-section { position: relative; }
 
@@ -641,6 +674,22 @@ a:hover { color: var(--green); }
 }
 
 .lab-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.lab-group-label {
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 1rem 0 0.5rem;
+}
+
+.lab-group-label:first-child { margin-top: 0; }
+
+.lab-group {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1rem;

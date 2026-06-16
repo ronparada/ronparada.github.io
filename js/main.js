@@ -105,7 +105,13 @@
   // ── Render projects ──
   function renderProjects() {
     const grid = document.getElementById('project-grid');
-    grid.innerHTML = projects
+    const sorted = [...projects].sort((a, b) => {
+      if (a.featured !== b.featured) return Number(b.featured) - Number(a.featured);
+      const order = { academic: 0, web: 1 };
+      return (order[a.category] ?? 2) - (order[b.category] ?? 2);
+    });
+
+    grid.innerHTML = sorted
       .map(
         (p) => `
         <article class="project-card ${p.featured ? 'featured' : ''}" data-project-id="${esc(p.id)}">
@@ -121,19 +127,15 @@
           ${
             p.url
               ? `<a href="${esc(p.url)}" target="_blank" rel="noopener noreferrer" class="project-link">visit_site() →</a>`
-              : `<span class="project-link" style="color: var(--text-dim)">academic_project — no live URL</span>`
+              : `<a href="#contact" class="project-link project-link-muted" data-section="contact">details_on_request() →</a>`
           }
         </article>`
       )
       .join('');
   }
 
-  // ── Render lab ──
-  function renderLab() {
-    const grid = document.getElementById('lab-grid');
-    grid.innerHTML = labProjects
-      .map(
-        (p) => `
+  function renderLabCard(p) {
+    return `
         <article class="lab-card ${p.sideProject ? 'side-project' : ''}" data-lab-id="${esc(p.id)}">
           <div class="lab-icon">${p.icon}</div>
           <h3>${esc(p.title)}${p.sideProject ? ' <span class="side-badge">side project</span>' : ''}</h3>
@@ -142,9 +144,20 @@
             ${p.tags.map((t) => `<span class="lab-tag">${esc(t)}</span>`).join('')}
           </div>
           ${p.github ? `<a href="${esc(p.github)}" target="_blank" rel="noopener noreferrer" class="project-link">view_code() →</a>` : ''}
-        </article>`
-      )
-      .join('');
+        </article>`;
+  }
+
+  // ── Render lab ──
+  function renderLab() {
+    const grid = document.getElementById('lab-grid');
+    const core = labProjects.filter((p) => !p.sideProject);
+    const side = labProjects.filter((p) => p.sideProject);
+
+    grid.innerHTML = `
+      <p class="lab-group-label">Core infrastructure</p>
+      <div class="lab-group">${core.map(renderLabCard).join('')}</div>
+      <p class="lab-group-label">Side experiments</p>
+      <div class="lab-group">${side.map(renderLabCard).join('')}</div>`;
   }
 
   // ── Render skills ──

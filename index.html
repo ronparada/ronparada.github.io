@@ -71,7 +71,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=23">
+  <link rel="stylesheet" href="css/style.css?v=24">
 </head>
 <body>
   <div class="scanlines" aria-hidden="true"></div>
@@ -86,7 +86,6 @@
         <button data-section="lab">lab</button>
         <button data-section="skills">skills</button>
         <button data-section="leadership">leadership</button>
-        <button data-section="demo">demo</button>
         <button data-section="contact">contact</button>
         <a href="https://github.com/ronparada" target="_blank" rel="noopener noreferrer" class="nav-github">github</a>
       </nav>
@@ -151,27 +150,32 @@
           </div>
         </div>
         <div class="hero-content">
-          <p class="hero-tag">MS Cybersecurity Graduate · Security+ Certified · Homelab Builder</p>
+          <p class="hero-tag">MS Cybersecurity · Security+ · Wazuh SIEM Homelab · Bilingual EN/ES</p>
           <h1 class="hero-name">
             <span class="prompt">$</span>
             <span id="typed-name"></span><span class="cursor-blink">█</span>
           </h1>
-          <p class="hero-roles">Open to <strong>SOC</strong>, <strong>Security Analyst</strong>, <strong>IT Support</strong>, and <strong>Security Engineering</strong> roles.</p>
-          <p class="hero-meta">Bilingual English/Spanish · San Bernardino, CA</p>
+          <p class="hero-roles">Seeking <strong>SOC</strong>, <strong>Security Analyst</strong>, <strong>IT Support</strong>, and <strong>Security Engineering</strong> roles in Southern California.</p>
+          <p class="hero-meta">Hands-on blue team · homelab SIEM · 4.00 MS GPA · San Bernardino, CA</p>
           <div class="hero-actions">
-            <a href="#projects" class="btn btn-primary" data-section="projects">view_projects()</a>
-            <a href="#lab" class="btn btn-primary" data-section="lab">view_cyber_lab()</a>
+            <button type="button" class="btn btn-primary" id="request-resume">download_resume()</button>
+            <a href="https://linkedin.com/in/ronaldaparada" target="_blank" rel="noopener noreferrer" class="btn btn-primary">linkedin</a>
             <a href="#contact" class="btn btn-secondary" data-section="contact">contact_me()</a>
-            <a href="https://github.com/ronparada" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">github</a>
           </div>
           <div class="hero-actions hero-actions-secondary">
-            <button type="button" class="btn btn-ghost" id="request-resume">download_resume()</button>
-            <a href="https://linkedin.com/in/ronaldaparada" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">linkedin</a>
+            <a href="#projects" class="btn btn-ghost" data-section="projects">view_projects()</a>
+            <a href="#lab" class="btn btn-ghost" data-section="lab">view_cyber_lab()</a>
+            <a href="https://github.com/ronparada" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">github</a>
           </div>
+          <ul class="value-strip" aria-label="Key strengths">
+            <li>Self-hosted Wazuh SIEM + Pi-hole DNS filtering</li>
+            <li>Enterprise AD capstone · Wireshark traffic analysis</li>
+            <li>NSA IECI workforce development · Graduate Assistant (2 yrs)</li>
+          </ul>
           <div class="hero-stats">
             <div class="stat"><span class="stat-val">4.00</span><span class="stat-label">MS GPA</span></div>
             <div class="stat"><span class="stat-val">Security+</span><span class="stat-label">Certified</span></div>
-            <div class="stat"><span class="stat-val">3</span><span class="stat-label">Live Sites</span></div>
+            <div class="stat"><span class="stat-val">SIEM</span><span class="stat-label">Homelab Live</span></div>
           </div>
           <div class="honors-strip" aria-label="Honors and distinctions">
             <span class="honor-badge">Summa Cum Laude</span>
@@ -189,17 +193,15 @@
           </div>
           <div class="about-text">
             <p>
-              I'm <strong>Ronald Parada</strong> — MS Cybersecurity from CSU San Bernardino (GPA 4.00),
-              <strong>graduated May 16, 2026</strong>. I <strong>spent two years as a Graduate Assistant</strong>
-              in cybersecurity courses at CSUSB. I still handle <strong>church</strong> tech (sound, web)
-              and serve as <strong>VP at Coyote Karate Academy</strong>.
+              I'm <strong>Ronald Parada</strong> — MS Cybersecurity, CSU San Bernardino (GPA 4.00,
+              <strong>graduated May 2026</strong>). I spent two years as a <strong>Graduate Assistant</strong>
+              in cybersecurity courses and run a homelab with <strong>Wazuh SIEM</strong> and DNS filtering
+              on real hardware. Bilingual English/Spanish, based in San Bernardino, CA.
             </p>
             <p>
-              I build websites, run a homelab with SIEM monitoring, and tinker on weekends — Meshtastic,
-              RF, hardware projects. The hobby work is real, but my professional focus is security operations,
-              analysis, and IT support in Southern California. Bilingual in English and Spanish, I'm looking
-              for a team where I can grow. Everything in the lab section is described at a high level — no
-              exploit recipes, because ethics matter.
+              I also build websites, volunteer church and karate tech, and tinker on weekends — Meshtastic,
+              RF, hardware. Hobby work is real but secondary; my focus is security operations, analysis,
+              and IT support. Lab content here is high-level only — no exploit recipes.
             </p>
           </div>
         </div>
@@ -223,7 +225,7 @@
         <span class="section-num">02</span>
         <h2>projects<span class="accent">/</span></h2>
       </div>
-      <p class="section-desc">Live sites, academic work, and things you can click right now.</p>
+      <p class="section-desc">Coursework and builds mapped to blue team, networking, and IT work — security first.</p>
       <div class="project-grid" id="project-grid"></div>
     </section>
 
@@ -234,8 +236,8 @@
         <h2>cyber_lab<span class="accent">.research</span></h2>
       </div>
       <p class="section-desc">
-        My personal homelab — still growing, but this is the real setup. Described at a high level
-        for a controlled, private environment. No exploit recipes, no attack playbooks.
+        Defensive homelab on real hardware — SIEM, DNS filtering, RF research. Side experiments labeled below.
+        High level only; no exploit playbooks. <a href="#demo" class="inline-link" data-section="demo">interactive map →</a>
         <span class="lab-badge">PRIVATE LAB</span>
       </p>
       <div class="lab-grid" id="lab-grid"></div>
@@ -272,7 +274,7 @@
         <span class="section-num">05</span>
         <h2>leadership<span class="accent">&amp;involvement</span></h2>
       </div>
-      <p class="section-desc">What I actually do day to day — teaching, volunteering, and leading.</p>
+      <p class="section-desc">Teaching, community leadership, and org involvement — shows reliability beyond the keyboard.</p>
       <div class="community-extras">
         <div class="mini-card card">
           <h4>Graduate Assistant — Cybersecurity (2024–2026)</h4>
@@ -291,11 +293,6 @@
         <div class="mini-card card">
           <h4>IECI · CISO · Phi Kappa Phi</h4>
           <p>NSA-sponsored cybersecurity workforce development, cyber org involvement, and honors society.</p>
-        </div>
-        <div class="mini-card card">
-          <h4>Retro Games</h4>
-          <p>Browser-based arcade I built for fun — playable demos hosted on GitHub Pages.</p>
-          <a href="https://ronparada.github.io/retro-games/" target="_blank" rel="noopener">ronparada.github.io/retro-games →</a>
         </div>
       </div>
     </section>
@@ -365,6 +362,10 @@
               <a href="mailto:ronparada@protonmail.com">ronparada@protonmail.com</a>
             </li>
             <li>
+              <span class="contact-key">resume</span>
+              <a href="resume.pdf" download="Ronald-Parada-Resume.pdf">download_resume.pdf</a>
+            </li>
+            <li>
               <span class="contact-key">github</span>
               <a href="https://github.com/ronparada" target="_blank" rel="noopener noreferrer">github.com/ronparada</a>
             </li>
@@ -403,7 +404,7 @@
   </main>
 
   <footer class="site-footer">
-    <p>© 2026 Ronald Parada · built with curiosity and caffeine · <span class="footer-blink">█</span> · <span id="build-tag">v23</span></p>
+    <p>© 2026 Ronald Parada · built with curiosity and caffeine · <span class="footer-blink">█</span> · <span id="build-tag">v24</span></p>
   </footer>
 
   <!-- INTERACTIVE TERMINAL -->
@@ -426,12 +427,12 @@
     </div>
   </div>
 
-  <script src="js/config.js?v=23"></script>
-  <script src="js/security.js?v=23"></script>
-  <script src="js/data.js?v=23"></script>
-  <script src="js/terminal.js?v=23"></script>
-  <script src="js/main.js?v=23"></script>
-  <script src="js/demo.js?v=23"></script>
-  <script src="js/contact.js?v=23"></script>
+  <script src="js/config.js?v=24"></script>
+  <script src="js/security.js?v=24"></script>
+  <script src="js/data.js?v=24"></script>
+  <script src="js/terminal.js?v=24"></script>
+  <script src="js/main.js?v=24"></script>
+  <script src="js/demo.js?v=24"></script>
+  <script src="js/contact.js?v=24"></script>
 </body>
 </html>
