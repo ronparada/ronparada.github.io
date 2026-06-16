@@ -71,7 +71,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=20">
+  <link rel="stylesheet" href="css/style.css?v=21">
 </head>
 <body>
   <div class="scanlines" aria-hidden="true"></div>
@@ -165,7 +165,7 @@
             <a href="https://github.com/ronparada" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">github</a>
           </div>
           <div class="hero-actions hero-actions-secondary">
-            <button type="button" class="btn btn-ghost" id="request-resume">request_resume()</button>
+            <button type="button" class="btn btn-ghost" id="request-resume">download_resume()</button>
             <a href="https://linkedin.com/in/ronaldaparada" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">linkedin</a>
           </div>
           <div class="hero-stats">
@@ -308,32 +308,35 @@
       </div>
       <p class="section-desc">Click a node to inspect it — abstract view of my home lab stack.</p>
       <div class="topology-wrap card">
-        <div class="topology-grid" id="topology-grid">
-          <button class="topo-node" data-node="pihole" type="button">
-            <span class="topo-icon">🕳️</span>
-            <span class="topo-label">Pi-hole</span>
-            <span class="topo-sub">Pi Zero 2 W</span>
-          </button>
-          <button class="topo-node" data-node="pi4" type="button">
-            <span class="topo-icon">🍓</span>
-            <span class="topo-label">Pi 4 Server</span>
-            <span class="topo-sub">Ubuntu · Plex</span>
-          </button>
-          <button class="topo-node" data-node="wazuh" type="button">
-            <span class="topo-icon">🛡️</span>
-            <span class="topo-label">Wazuh SIEM</span>
-            <span class="topo-sub">Mac Mini</span>
-          </button>
-          <button class="topo-node" data-node="mesh" type="button">
-            <span class="topo-icon">📡</span>
-            <span class="topo-label">Meshtastic</span>
-            <span class="topo-sub">3-node mesh</span>
-          </button>
-          <button class="topo-node" data-node="ai" type="button">
-            <span class="topo-icon">🤖</span>
-            <span class="topo-label">AI Agents</span>
-            <span class="topo-sub">Local stack</span>
-          </button>
+        <div class="topology-stage" id="topology-stage">
+          <svg class="topology-lines" id="topology-lines" aria-hidden="true"></svg>
+          <div class="topology-nodes" id="topology-grid">
+            <button class="topo-node" data-node="pihole" type="button">
+              <span class="topo-icon">🕳️</span>
+              <span class="topo-label">Pi-hole</span>
+              <span class="topo-sub">Pi Zero 2 W</span>
+            </button>
+            <button class="topo-node topo-hub" data-node="pi4" type="button">
+              <span class="topo-icon">🍓</span>
+              <span class="topo-label">Pi 4 Server</span>
+              <span class="topo-sub">Ubuntu · Plex</span>
+            </button>
+            <button class="topo-node" data-node="wazuh" type="button">
+              <span class="topo-icon">🛡️</span>
+              <span class="topo-label">Wazuh SIEM</span>
+              <span class="topo-sub">Mac Mini</span>
+            </button>
+            <button class="topo-node" data-node="mesh" type="button">
+              <span class="topo-icon">📡</span>
+              <span class="topo-label">Meshtastic</span>
+              <span class="topo-sub">3-node mesh</span>
+            </button>
+            <button class="topo-node" data-node="ai" type="button">
+              <span class="topo-icon">🤖</span>
+              <span class="topo-label">AI Agents</span>
+              <span class="topo-sub">Local stack</span>
+            </button>
+          </div>
         </div>
         <div class="topo-detail" id="topo-detail">
           <span class="topo-detail-prompt">$</span>
@@ -400,7 +403,7 @@
   </main>
 
   <footer class="site-footer">
-    <p>© 2026 Ronald Parada · built with curiosity and caffeine · <span class="footer-blink">█</span> · <span id="build-tag">v20</span></p>
+    <p>© 2026 Ronald Parada · built with curiosity and caffeine · <span class="footer-blink">█</span> · <span id="build-tag">v21</span></p>
   </footer>
 
   <!-- INTERACTIVE TERMINAL -->
@@ -423,12 +426,12 @@
     </div>
   </div>
 
-  <script src="js/config.js?v=20"></script>
-  <script src="js/security.js?v=20"></script>
-  <script src="js/data.js?v=20"></script>
-  <script src="js/terminal.js?v=20"></script>
-  <script src="js/main.js?v=20"></script>
-  <script src="js/demo.js?v=20"></script>
-  <script src="js/contact.js?v=20"></script>
+  <script src="js/config.js?v=21"></script>
+  <script src="js/security.js?v=21"></script>
+  <script src="js/data.js?v=21"></script>
+  <script src="js/terminal.js?v=21"></script>
+  <script src="js/main.js?v=21"></script>
+  <script src="js/demo.js?v=21"></script>
+  <script src="js/contact.js?v=21"></script>
 </body>
 </html>

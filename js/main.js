@@ -87,12 +87,19 @@
         /* resume.pdf not deployed — fall back to contact form */
       }
 
+      btn.textContent = 'request_resume()';
       document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
       if (message) {
         message.value = 'Hi Ronald — I\'d like to request a copy of your resume.';
         message.focus();
       }
     });
+
+    fetch('resume.pdf', { method: 'HEAD' })
+      .then((res) => {
+        if (res.ok) btn.textContent = 'download_resume()';
+      })
+      .catch(() => {});
   }
 
   // ── Render projects ──

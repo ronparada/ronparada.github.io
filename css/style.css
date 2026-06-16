@@ -811,14 +811,79 @@ a:hover { color: var(--green); }
 /* ── Homelab topology demo ── */
 .topology-wrap { padding: 1.5rem; }
 
-.topology-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 0.75rem;
+.topology-stage {
+  position: relative;
   margin-bottom: 1.25rem;
+  min-height: 300px;
+}
+
+.topology-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.topo-line {
+  stroke: var(--border);
+  stroke-width: 2;
+  stroke-dasharray: 6 4;
+  opacity: 0.55;
+  transition: stroke 0.25s, opacity 0.25s;
+}
+
+.topo-line.lit {
+  stroke: var(--green);
+  opacity: 1;
+  stroke-dasharray: none;
+}
+
+.topo-line.scan-pulse {
+  animation: topo-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes topo-pulse {
+  0%, 100% { opacity: 0.55; stroke-width: 2; }
+  50% { opacity: 1; stroke-width: 3; }
+}
+
+.topology-nodes {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1.15fr 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 1.25rem 1rem;
+  align-items: center;
+  justify-items: center;
+  padding: 0.5rem;
+}
+
+.topology-nodes .topo-node[data-node="pihole"] { grid-column: 1; grid-row: 1; }
+.topology-nodes .topo-node[data-node="wazuh"] { grid-column: 3; grid-row: 1; }
+.topology-nodes .topo-node[data-node="pi4"] { grid-column: 2; grid-row: 2; }
+.topology-nodes .topo-node[data-node="mesh"] { grid-column: 1; grid-row: 3; }
+.topology-nodes .topo-node[data-node="ai"] { grid-column: 3; grid-row: 3; }
+
+.topology-stage.scanning .topo-node {
+  animation: node-scan 1.5s ease-in-out infinite;
+}
+
+.topology-stage.scanning .topo-hub {
+  border-color: var(--cyan);
+  box-shadow: 0 0 16px rgba(34, 211, 238, 0.25);
+}
+
+@keyframes node-scan {
+  0%, 100% { box-shadow: none; }
+  50% { box-shadow: 0 0 10px rgba(0, 255, 136, 0.12); }
 }
 
 .topo-node {
+  width: 100%;
+  max-width: 160px;
   background: var(--bg);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -828,6 +893,11 @@ a:hover { color: var(--green); }
   font-family: var(--font);
   color: var(--text);
   transition: all 0.2s;
+}
+
+.topo-hub {
+  max-width: 180px;
+  border-color: var(--green-dim);
 }
 
 .topo-node:hover,
@@ -1121,4 +1191,7 @@ body.terminal-collapsed .terminal-dock-body {
   .project-grid { grid-template-columns: 1fr; }
   .demo-iframe { height: 350px; }
   :root { --terminal-h: 180px; }
+  .topology-stage { min-height: 340px; }
+  .topo-node { max-width: 140px; padding: 0.75rem 0.5rem; }
+  .topo-hub { max-width: 150px; }
 }
