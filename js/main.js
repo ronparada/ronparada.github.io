@@ -107,7 +107,7 @@
     const grid = document.getElementById('project-grid');
     const sorted = [...projects].sort((a, b) => {
       if (a.featured !== b.featured) return Number(b.featured) - Number(a.featured);
-      const order = { security: 0, academic: 1, web: 2 };
+      const order = { academic: 0, web: 1 };
       return (order[a.category] ?? 2) - (order[b.category] ?? 2);
     });
 
@@ -248,22 +248,6 @@
     sections.forEach((s) => sectionObserver.observe(s));
   }
 
-  // ── Copy contact for Discord ──
-  function initDiscordHint() {
-    const btn = document.getElementById('copy-discord-hint');
-    if (!btn) return;
-    btn.addEventListener('click', async () => {
-      const text = 'ronparada@protonmail.com — interested in joining the Meshtastic mesh!';
-      try {
-        await navigator.clipboard.writeText(text);
-        btn.textContent = 'copied!';
-        setTimeout(() => { btn.textContent = 'copy_contact_for_discord'; }, 2000);
-      } catch {
-        btn.textContent = 'copy failed — use email instead';
-      }
-    });
-  }
-
   // ── Init ──
   document.addEventListener('DOMContentLoaded', () => {
     runBootSequence();
@@ -273,7 +257,6 @@
     renderSkills();
     initScrollReveal();
     initNavigation();
-    initDiscordHint();
     initProfileAvatar();
     initResumeRequest();
   });

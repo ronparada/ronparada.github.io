@@ -14,16 +14,6 @@ const PORTFOLIO_DATA = {
       featured: true,
     },
     {
-      id: 'proxmox-lab',
-      title: 'Proxmox VE Hypervisor Lab',
-      category: 'security',
-      description: 'Type-1 hypervisor on HP EliteDesk Mini (i5-8500T, 16GB RAM, 756GB NVMe) — Active Directory attack lab with Windows Server 2025 DC, Windows 11 domain client, Kali Linux attacker, and Metasploitable 2 target. Remote access via Tailscale, Wake on LAN via Pi 4.',
-      tech: ['Proxmox', 'Windows Server', 'Active Directory', 'Kali Linux', 'Tailscale'],
-      url: null,
-      live: false,
-      featured: true,
-    },
-    {
       id: 'wireshark-dog',
       title: 'Robotic Dog Traffic Analysis',
       category: 'academic',
@@ -80,21 +70,21 @@ const PORTFOLIO_DATA = {
       id: 'proxmox-lab',
       title: 'Proxmox VE Hypervisor Lab',
       icon: '🖥️',
-      description: 'Type-1 hypervisor on HP EliteDesk Mini (i5-8500T, 16GB RAM, 756GB NVMe) — Active Directory attack lab with Windows Server 2025 DC, Windows 11 domain client, Kali Linux attacker, Metasploitable 2 target, and Ubuntu LXC. Wake on LAN via Pi 4. Remote access via Tailscale.',
+      description: 'Type-1 hypervisor on HP EliteDesk Mini (i5-8500T, 16GB RAM, 756GB NVMe) — Active Directory attack lab: Windows Server 2025 DC, Windows 11 client, Kali attacker, Metasploitable 2, Ubuntu LXC. Powered on via Wake-on-LAN from the Pi 4. Remote access via Tailscale. Wazuh agent integration planned.',
       tags: ['Proxmox', 'Active Directory', 'Kali Linux', 'Windows Server', 'Hypervisor', 'Tailscale', 'Wake on LAN'],
     },
     {
       id: 'wazuh-siem',
       title: 'Wazuh SIEM — Mac Mini Home Lab',
       icon: '🛡️',
-      description: 'Self-hosted Wazuh stack in Docker on an Apple Silicon Mac Mini — centralized SIEM for the homelab. Agents on Pi 4, file integrity monitoring, vuln scans, OpenSearch dashboard. All local hardware.',
+      description: 'Self-hosted Wazuh stack in Docker on an Apple Silicon Mac Mini — centralized SIEM for the homelab. Pi 4 agent active; Proxmox VM agent integration planned. File integrity monitoring, vuln scans, OpenSearch dashboard.',
       tags: ['Wazuh', 'SIEM', 'Docker', 'OpenSearch', 'Threat Detection', 'FIM'],
     },
     {
       id: 'home-security-lab',
       title: 'Home Security Lab',
       icon: '🏠',
-      description: 'Pi-hole DNS filtering on Raspberry Pi Zero 2 W plus Ubuntu Server on Pi 4 with SSH, Tailscale VPN, and secure remote admin for self-hosted services.',
+      description: 'Pi-hole DNS filtering on Raspberry Pi Zero 2 W plus Ubuntu Server on Pi 4 — homelab hub with SSH, Tailscale VPN, Plex, and Wake-on-LAN relay to the Proxmox AD lab.',
       tags: ['Raspberry Pi', 'Pi-hole', 'Tailscale', 'Ubuntu Server', 'SSH'],
     },
     {
@@ -156,7 +146,7 @@ const PORTFOLIO_DATA = {
   skills: [
     'Incident Response', 'Network Security', 'SIEM / Wazuh', 'Wireshark',
     'Penetration Testing', 'Active Directory', 'Linux', 'Python',
-    'Firewall Hardening', 'Threat Analysis', 'NIST 800-53', 'Docker',
+    'Firewall Hardening', 'Threat Analysis', 'NIST 800-53', 'Docker', 'Proxmox',
     'Web Development', 'Troubleshooting', 'Spanish (Fluent)',
   ],
 

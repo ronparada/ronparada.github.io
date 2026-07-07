@@ -446,13 +446,11 @@ a:hover { color: var(--green); }
   min-width: 0;
 }
 
-.about-avatar.card,
-.about-photo.card {
+.about-avatar.card {
   padding: 0.75rem;
 }
 
-.about-avatar,
-.about-photo {
+.about-avatar {
   text-align: center;
   position: relative;
   width: 100%;
@@ -460,8 +458,7 @@ a:hover { color: var(--green); }
   user-select: none;
 }
 
-.profile-avatar-frame,
-.profile-photo-frame {
+.profile-avatar-frame {
   position: relative;
   display: inline-block;
   width: 100%;
@@ -474,8 +471,7 @@ a:hover { color: var(--green); }
   background: var(--bg);
 }
 
-.profile-avatar,
-.profile-img {
+.profile-avatar {
   width: 100%;
   height: 100%;
   display: block;
@@ -809,34 +805,6 @@ a:hover { color: var(--green); }
 }
 
 /* ── Community ── */
-.community-card {
-  display: flex;
-  gap: 1.5rem;
-  align-items: flex-start;
-  margin-bottom: 1.5rem;
-}
-
-.community-icon { font-size: 2.5rem; }
-
-.community-content h3 {
-  color: var(--green);
-  margin-bottom: 0.5rem;
-}
-
-.community-content p {
-  font-size: 0.85rem;
-  color: var(--text-dim);
-  margin-bottom: 0.75rem;
-}
-
-.community-cta-text { color: var(--text) !important; }
-
-.community-links {
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-}
-
 .community-extras {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -889,6 +857,16 @@ a:hover { color: var(--green); }
   stroke-dasharray: none;
 }
 
+.topo-line.planned {
+  stroke: var(--cyan);
+  stroke-dasharray: 5 5;
+  opacity: 0.45;
+}
+
+.topo-line.planned.lit {
+  opacity: 0.85;
+}
+
 .topo-line.scan-pulse {
   animation: topo-pulse 1.2s ease-in-out infinite;
 }
@@ -911,10 +889,10 @@ a:hover { color: var(--green); }
 }
 
 .topology-nodes .topo-node[data-node="pihole"] { grid-column: 1; grid-row: 1; }
-.topology-nodes .topo-node[data-node="proxmox"] { grid-column: 2; grid-row: 1; }
 .topology-nodes .topo-node[data-node="wazuh"] { grid-column: 3; grid-row: 1; }
 .topology-nodes .topo-node[data-node="pi4"] { grid-column: 2; grid-row: 2; }
 .topology-nodes .topo-node[data-node="mesh"] { grid-column: 1; grid-row: 3; }
+.topology-nodes .topo-node[data-node="proxmox"] { grid-column: 2; grid-row: 3; }
 .topology-nodes .topo-node[data-node="ai"] { grid-column: 3; grid-row: 3; }
 
 .topology-stage.scanning .topo-node {
@@ -1218,8 +1196,7 @@ body.terminal-collapsed .terminal-dock-body {
     gap: 1.25rem;
   }
 
-  .about-avatar,
-  .about-photo {
+  .about-avatar {
     width: auto;
     flex: 0 0 auto;
   }
@@ -1228,8 +1205,6 @@ body.terminal-collapsed .terminal-dock-body {
     flex: 1 1 240px;
     min-width: 200px;
   }
-
-  .community-card { flex-direction: column; }
 
   .nav-links { display: none; }
 

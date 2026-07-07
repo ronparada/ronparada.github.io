@@ -4,19 +4,20 @@
 (function () {
   const NODES = {
     pihole: 'Pi-hole on Raspberry Pi Zero 2 W — network-wide DNS filtering, blocks malicious domains before they resolve.',
-    pi4: 'Ubuntu Server on Raspberry Pi 4 — central hub: Plex, Jellyfin, Meshtastic Discord bridge, SSH + Tailscale remote admin.',
-    proxmox: 'Proxmox VE 9.2 on HP EliteDesk Mini (i5-8500T, 16GB RAM, 756GB NVMe) — Type-1 hypervisor running an Active Directory attack lab. VMs: Windows Server 2025 (DC01.lab.local), Windows 11 Education (domain client), Kali Linux (attacker), Metasploitable 2 (target), Ubuntu LXC. Remote access via Tailscale. Wake on LAN via Pi 4.',
-    wazuh: 'Wazuh SIEM on Mac Mini (Docker/Colima) — threat detection, FIM, vuln scans, OpenSearch dashboard. Agents report through the Pi 4 hub.',
+    pi4: 'Ubuntu Server on Raspberry Pi 4 — homelab hub: Plex, Jellyfin, Meshtastic bridge, SSH + Tailscale. Sends Wake-on-LAN magic packets to boot the Proxmox EliteDesk when the AD lab is needed.',
+    proxmox: 'Proxmox VE on HP EliteDesk Mini (i5-8500T, 16GB RAM, 756GB NVMe) — Type-1 hypervisor running an Active Directory attack lab. VMs: Windows Server 2025 DC, Windows 11 client, Kali Linux, Metasploitable 2, Ubuntu LXC. Wakes via Pi 4 WoL; remote access via Tailscale.',
+    wazuh: 'Wazuh SIEM on Mac Mini (Docker/Colima) — threat detection, FIM, vuln scans, OpenSearch dashboard. Pi 4 agent active; Proxmox VM agent integration planned.',
     mesh: '3-node LoRa mesh (T-Beam, Wio Tracker, T-Deck) — Python Discord bridge on Pi 4, 5-channel routing, systemd service.',
     ai: 'Self-hosted AI agent stack — Telegram + Discord bots, local automation, private and under my control.',
   };
 
-  const EDGES = [
-    ['pihole', 'pi4'],
-    ['wazuh', 'pi4'],
-    ['mesh', 'pi4'],
-    ['ai', 'pi4'],
-    ['proxmox', 'pi4'],
+  const LINKS = [
+    { from: 'pihole', to: 'pi4' },
+    { from: 'wazuh', to: 'pi4' },
+    { from: 'mesh', to: 'pi4' },
+    { from: 'ai', to: 'pi4' },
+    { from: 'pi4', to: 'proxmox', directed: true },
+    { from: 'proxmox', to: 'wazuh', planned: true },
   ];
 
   const SCAN_LINES = [
@@ -25,7 +26,9 @@
     '',
     '[+] DNS filtering ............... Pi-hole ACTIVE',
     '[+] VPN tunnel ................ Tailscale SECURED',
+    '[+] WoL relay ................... Pi 4 → Proxmox READY',
     '[+] SIEM monitoring ........... Wazuh ONLINE',
+    '[~] Proxmox agent ............. Wazuh PLANNED',
     '[+] HTTPS certificate ......... VALID (ronparada.com)',
     '[+] Contact form .............. Formspree ENCRYPTED',
     '[+] CSP headers ............... ENABLED',
@@ -44,8 +47,18 @@
 
   if (!stage || !svg || !grid || !detail) return;
 
-  let activeNode = 'wazuh';
+  let activeNode = 'pi4';
   let scanning = false;
+
+  function anchorPoint(rect, stageRect, role) {
+    const cx = rect.left + rect.width / 2 - stageRect.left;
+    const cy = rect.top + rect.height / 2 - stageRect.top;
+    if (role === 'from-bottom') return { x: cx, y: rect.bottom - stageRect.top };
+    if (role === 'from-top') return { x: cx, y: rect.top - stageRect.top };
+    if (role === 'to-top') return { x: cx, y: rect.top - stageRect.top };
+    if (role === 'to-bottom') return { x: cx, y: rect.bottom - stageRect.top };
+    return { x: cx, y: cy };
+  }
 
   function selectNode(nodeId) {
     activeNode = nodeId;
@@ -68,34 +81,57 @@
         <feGaussianBlur stdDeviation="2" result="blur"/>
         <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
       </filter>
+      <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 Z" fill="var(--green)"/>
+      </marker>
     `;
     svg.appendChild(defs);
 
-    EDGES.forEach(([from, to]) => {
-      const a = grid.querySelector(`[data-node="${from}"]`);
-      const b = grid.querySelector(`[data-node="${to}"]`);
+    LINKS.forEach((link) => {
+      const a = grid.querySelector(`[data-node="${link.from}"]`);
+      const b = grid.querySelector(`[data-node="${link.to}"]`);
       if (!a || !b) return;
 
       const ar = a.getBoundingClientRect();
       const br = b.getBoundingClientRect();
-      const x1 = ar.left + ar.width / 2 - stageRect.left;
-      const y1 = ar.top + ar.height / 2 - stageRect.top;
-      const x2 = br.left + br.width / 2 - stageRect.left;
-      const y2 = br.top + br.height / 2 - stageRect.top;
+      const vertical = Math.abs(ar.top - br.top) > Math.abs(ar.left - br.left);
 
-      const lit = activeNode === from || activeNode === to || scanning;
+      let p1;
+      let p2;
+      if (link.from === 'pi4' && link.to === 'proxmox') {
+        p1 = anchorPoint(ar, stageRect, 'from-bottom');
+        p2 = anchorPoint(br, stageRect, 'to-top');
+      } else if (vertical && br.top > ar.top) {
+        p1 = anchorPoint(ar, stageRect, 'from-bottom');
+        p2 = anchorPoint(br, stageRect, 'to-top');
+      } else if (vertical) {
+        p1 = anchorPoint(ar, stageRect, 'from-top');
+        p2 = anchorPoint(br, stageRect, 'to-bottom');
+      } else {
+        p1 = anchorPoint(ar, stageRect, 'from-bottom');
+        p2 = anchorPoint(br, stageRect, 'to-top');
+      }
+
+      const lit = activeNode === link.from || activeNode === link.to || scanning;
       const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-      line.setAttribute('x1', x1);
-      line.setAttribute('y1', y1);
-      line.setAttribute('x2', x2);
-      line.setAttribute('y2', y2);
-      line.setAttribute('class', `topo-line${lit ? ' lit' : ''}${scanning ? ' scan-pulse' : ''}`);
-      if (lit) line.setAttribute('filter', 'url(#line-glow)');
+      line.setAttribute('x1', p1.x);
+      line.setAttribute('y1', p1.y);
+      line.setAttribute('x2', p2.x);
+      line.setAttribute('y2', p2.y);
+
+      let cls = 'topo-line';
+      if (link.planned) cls += ' planned';
+      if (lit) cls += ' lit';
+      if (scanning) cls += ' scan-pulse';
+      line.setAttribute('class', cls);
+
+      if (lit && !link.planned) line.setAttribute('filter', 'url(#line-glow)');
+      if (link.directed && !link.planned) line.setAttribute('marker-end', 'url(#arrow)');
       svg.appendChild(line);
     });
   }
 
-  selectNode('wazuh');
+  selectNode('pi4');
 
   grid.addEventListener('click', (e) => {
     const node = e.target.closest('.topo-node');
@@ -104,6 +140,7 @@
   });
 
   window.addEventListener('resize', () => drawLines());
+  window.addEventListener('load', () => requestAnimationFrame(drawLines));
 
   if (scanBtn && scanOutput) {
     scanBtn.addEventListener('click', runScan);

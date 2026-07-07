@@ -71,7 +71,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=25">
+  <link rel="stylesheet" href="css/style.css?v=26">
 </head>
 <body>
   <div class="scanlines" aria-hidden="true"></div>
@@ -168,7 +168,7 @@
             <a href="https://github.com/ronparada" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">github</a>
           </div>
           <ul class="value-strip" aria-label="Key strengths">
-            <li>Self-hosted Wazuh SIEM + Pi-hole DNS filtering</li>
+            <li>Proxmox AD attack lab · Wazuh SIEM · Pi-hole DNS filtering</li>
             <li>Enterprise AD capstone · Wireshark traffic analysis</li>
             <li>NSA IECI workforce development · Graduate Assistant (2 yrs)</li>
           </ul>
@@ -303,7 +303,7 @@
         <span class="section-num">06</span>
         <h2>live_demo<span class="accent">.homelab_map</span></h2>
       </div>
-      <p class="section-desc">Click a node to inspect it — abstract view of my home lab stack.</p>
+      <p class="section-desc">Click a node to inspect it. Solid lines are live links; dashed lines are planned. Pi 4 sends Wake-on-LAN to Proxmox.</p>
       <div class="topology-wrap card">
         <div class="topology-stage" id="topology-stage">
           <svg class="topology-lines" id="topology-lines" aria-hidden="true"></svg>
@@ -313,25 +313,25 @@
               <span class="topo-label">Pi-hole</span>
               <span class="topo-sub">Pi Zero 2 W</span>
             </button>
-            <button class="topo-node topo-hub" data-node="pi4" type="button">
-              <span class="topo-icon">🍓</span>
-              <span class="topo-label">Pi 4 Server</span>
-              <span class="topo-sub">Ubuntu · Plex</span>
-            </button>
             <button class="topo-node" data-node="wazuh" type="button">
               <span class="topo-icon">🛡️</span>
               <span class="topo-label">Wazuh SIEM</span>
               <span class="topo-sub">Mac Mini</span>
             </button>
-            <button class="topo-node" data-node="proxmox" type="button">
-              <span class="topo-icon">🖥️</span>
-              <span class="topo-label">Proxmox Lab</span>
-              <span class="topo-sub">HP EliteDesk</span>
+            <button class="topo-node topo-hub" data-node="pi4" type="button">
+              <span class="topo-icon">🍓</span>
+              <span class="topo-label">Pi 4 Server</span>
+              <span class="topo-sub">WoL · Plex · Tailscale</span>
             </button>
             <button class="topo-node" data-node="mesh" type="button">
               <span class="topo-icon">📡</span>
               <span class="topo-label">Meshtastic</span>
               <span class="topo-sub">3-node mesh</span>
+            </button>
+            <button class="topo-node" data-node="proxmox" type="button">
+              <span class="topo-icon">🖥️</span>
+              <span class="topo-label">Proxmox Lab</span>
+              <span class="topo-sub">AD Lab · Tailscale</span>
             </button>
             <button class="topo-node" data-node="ai" type="button">
               <span class="topo-icon">🤖</span>
@@ -409,7 +409,7 @@
   </main>
 
   <footer class="site-footer">
-    <p>© 2026 Ronald Parada · built with curiosity and caffeine · <span class="footer-blink">█</span> · <span id="build-tag">v25</span></p>
+    <p>© 2026 Ronald Parada · built with curiosity and caffeine · <span class="footer-blink">█</span> · <span id="build-tag">v26</span></p>
   </footer>
 
   <!-- INTERACTIVE TERMINAL -->
@@ -432,12 +432,12 @@
     </div>
   </div>
 
-  <script src="js/config.js?v=25"></script>
-  <script src="js/security.js?v=25"></script>
-  <script src="js/data.js?v=25"></script>
-  <script src="js/terminal.js?v=25"></script>
-  <script src="js/main.js?v=25"></script>
-  <script src="js/demo.js?v=25"></script>
-  <script src="js/contact.js?v=25"></script>
+  <script src="js/config.js?v=26"></script>
+  <script src="js/security.js?v=26"></script>
+  <script src="js/data.js?v=26"></script>
+  <script src="js/terminal.js?v=26"></script>
+  <script src="js/main.js?v=26"></script>
+  <script src="js/demo.js?v=26"></script>
+  <script src="js/contact.js?v=26"></script>
 </body>
 </html>
