@@ -4,6 +4,13 @@
 const PORTFOLIO_DATA = {
   projects: [
     {
+      id: 'proxmox-lab',
+      title: 'Proxmox VE Hypervisor Lab',
+      icon: '🖥️',
+      description: 'Type-1 hypervisor on HP EliteDesk Mini (i5-8500T, 16GB RAM, 756GB NVMe) — Active Directory attack lab with Windows Server 2025 DC, Windows 11 domain client, Kali Linux attacker, Metasploitable 2 target, and Ubuntu LXC. Wake on LAN via Pi 4. Remote access via Tailscale.',
+      tags: ['Proxmox', 'Active Directory', 'Kali Linux', 'Windows Server', 'Hypervisor', 'Tailscale', 'Wake on LAN'],
+    },
+    {
       id: 'capstone',
       title: 'Enterprise Network Capstone',
       category: 'academic',
@@ -12,6 +19,13 @@ const PORTFOLIO_DATA = {
       url: null,
       live: false,
       featured: true,
+    },
+    {
+      id: 'proxmox-lab',
+      title: 'Proxmox VE Hypervisor Lab',
+      icon: '🖥️',
+      description: 'Type-1 hypervisor on HP EliteDesk Mini (i5-8500T, 16GB RAM, 756GB NVMe) — Active Directory attack lab with Windows Server 2025 DC, Windows 11 domain client, Kali Linux attacker, Metasploitable 2 target, and Ubuntu LXC. Wake on LAN via Pi 4. Remote access via Tailscale.',
+      tags: ['Proxmox', 'Active Directory', 'Kali Linux', 'Windows Server', 'Hypervisor', 'Tailscale', 'Wake on LAN'],
     },
     {
       id: 'wireshark-dog',
@@ -24,6 +38,13 @@ const PORTFOLIO_DATA = {
       featured: true,
     },
     {
+      id: 'proxmox-lab',
+      title: 'Proxmox VE Hypervisor Lab',
+      icon: '🖥️',
+      description: 'Type-1 hypervisor on HP EliteDesk Mini (i5-8500T, 16GB RAM, 756GB NVMe) — Active Directory attack lab with Windows Server 2025 DC, Windows 11 domain client, Kali Linux attacker, Metasploitable 2 target, and Ubuntu LXC. Wake on LAN via Pi 4. Remote access via Tailscale.',
+      tags: ['Proxmox', 'Active Directory', 'Kali Linux', 'Windows Server', 'Hypervisor', 'Tailscale', 'Wake on LAN'],
+    },
+    {
       id: 'coyote-karate',
       title: 'Coyote Karate Academy',
       category: 'web',
@@ -32,6 +53,13 @@ const PORTFOLIO_DATA = {
       url: 'https://coyotekarateacademy.com/',
       live: true,
       featured: true,
+    },
+    {
+      id: 'proxmox-lab',
+      title: 'Proxmox VE Hypervisor Lab',
+      icon: '🖥️',
+      description: 'Type-1 hypervisor on HP EliteDesk Mini (i5-8500T, 16GB RAM, 756GB NVMe) — Active Directory attack lab with Windows Server 2025 DC, Windows 11 domain client, Kali Linux attacker, Metasploitable 2 target, and Ubuntu LXC. Wake on LAN via Pi 4. Remote access via Tailscale.',
+      tags: ['Proxmox', 'Active Directory', 'Kali Linux', 'Windows Server', 'Hypervisor', 'Tailscale', 'Wake on LAN'],
     },
     {
       id: 'fresca-uncion',
@@ -44,6 +72,13 @@ const PORTFOLIO_DATA = {
       featured: false,
     },
     {
+      id: 'proxmox-lab',
+      title: 'Proxmox VE Hypervisor Lab',
+      icon: '🖥️',
+      description: 'Type-1 hypervisor on HP EliteDesk Mini (i5-8500T, 16GB RAM, 756GB NVMe) — Active Directory attack lab with Windows Server 2025 DC, Windows 11 domain client, Kali Linux attacker, Metasploitable 2 target, and Ubuntu LXC. Wake on LAN via Pi 4. Remote access via Tailscale.',
+      tags: ['Proxmox', 'Active Directory', 'Kali Linux', 'Windows Server', 'Hypervisor', 'Tailscale', 'Wake on LAN'],
+    },
+    {
       id: 'retro-games',
       title: 'Retro Games Arcade',
       category: 'web',
@@ -52,6 +87,13 @@ const PORTFOLIO_DATA = {
       url: 'https://ronparada.github.io/retro-games/',
       live: true,
       featured: false,
+    },
+    {
+      id: 'proxmox-lab',
+      title: 'Proxmox VE Hypervisor Lab',
+      icon: '🖥️',
+      description: 'Type-1 hypervisor on HP EliteDesk Mini (i5-8500T, 16GB RAM, 756GB NVMe) — Active Directory attack lab with Windows Server 2025 DC, Windows 11 domain client, Kali Linux attacker, Metasploitable 2 target, and Ubuntu LXC. Wake on LAN via Pi 4. Remote access via Tailscale.',
+      tags: ['Proxmox', 'Active Directory', 'Kali Linux', 'Windows Server', 'Hypervisor', 'Tailscale', 'Wake on LAN'],
     },
     {
       id: 'student-web',
@@ -67,11 +109,25 @@ const PORTFOLIO_DATA = {
 
   labProjects: [
     {
+      id: 'proxmox-lab',
+      title: 'Proxmox VE Hypervisor Lab',
+      icon: '🖥️',
+      description: 'Type-1 hypervisor on HP EliteDesk Mini (i5-8500T, 16GB RAM, 756GB NVMe) — Active Directory attack lab with Windows Server 2025 DC, Windows 11 domain client, Kali Linux attacker, Metasploitable 2 target, and Ubuntu LXC. Wake on LAN via Pi 4. Remote access via Tailscale.',
+      tags: ['Proxmox', 'Active Directory', 'Kali Linux', 'Windows Server', 'Hypervisor', 'Tailscale', 'Wake on LAN'],
+    },
+    {
       id: 'wazuh-siem',
       title: 'Wazuh SIEM — Mac Mini Home Lab',
       icon: '🛡️',
       description: 'Self-hosted Wazuh stack in Docker on an Apple Silicon Mac Mini — centralized SIEM for the homelab. Agents on Pi 4, file integrity monitoring, vuln scans, OpenSearch dashboard. All local hardware.',
       tags: ['Wazuh', 'SIEM', 'Docker', 'OpenSearch', 'Threat Detection', 'FIM'],
+    },
+    {
+      id: 'proxmox-lab',
+      title: 'Proxmox VE Hypervisor Lab',
+      icon: '🖥️',
+      description: 'Type-1 hypervisor on HP EliteDesk Mini (i5-8500T, 16GB RAM, 756GB NVMe) — Active Directory attack lab with Windows Server 2025 DC, Windows 11 domain client, Kali Linux attacker, Metasploitable 2 target, and Ubuntu LXC. Wake on LAN via Pi 4. Remote access via Tailscale.',
+      tags: ['Proxmox', 'Active Directory', 'Kali Linux', 'Windows Server', 'Hypervisor', 'Tailscale', 'Wake on LAN'],
     },
     {
       id: 'home-security-lab',
@@ -81,11 +137,25 @@ const PORTFOLIO_DATA = {
       tags: ['Raspberry Pi', 'Pi-hole', 'Tailscale', 'Ubuntu Server', 'SSH'],
     },
     {
+      id: 'proxmox-lab',
+      title: 'Proxmox VE Hypervisor Lab',
+      icon: '🖥️',
+      description: 'Type-1 hypervisor on HP EliteDesk Mini (i5-8500T, 16GB RAM, 756GB NVMe) — Active Directory attack lab with Windows Server 2025 DC, Windows 11 domain client, Kali Linux attacker, Metasploitable 2 target, and Ubuntu LXC. Wake on LAN via Pi 4. Remote access via Tailscale.',
+      tags: ['Proxmox', 'Active Directory', 'Kali Linux', 'Windows Server', 'Hypervisor', 'Tailscale', 'Wake on LAN'],
+    },
+    {
       id: 'rf-research',
       title: 'RF & Wireless Security Research',
       icon: '📻',
       description: 'Tested Wi-Fi, Bluetooth, and sub-GHz attack surfaces in a controlled lab. Deployed Rayhunter on a mobile hotspot to detect IMSI-catcher activity.',
       tags: ['Wi-Fi', 'Bluetooth', 'Sub-GHz', 'Rayhunter', 'RF Security'],
+    },
+    {
+      id: 'proxmox-lab',
+      title: 'Proxmox VE Hypervisor Lab',
+      icon: '🖥️',
+      description: 'Type-1 hypervisor on HP EliteDesk Mini (i5-8500T, 16GB RAM, 756GB NVMe) — Active Directory attack lab with Windows Server 2025 DC, Windows 11 domain client, Kali Linux attacker, Metasploitable 2 target, and Ubuntu LXC. Wake on LAN via Pi 4. Remote access via Tailscale.',
+      tags: ['Proxmox', 'Active Directory', 'Kali Linux', 'Windows Server', 'Hypervisor', 'Tailscale', 'Wake on LAN'],
     },
     {
       id: 'bad-beatles',
@@ -95,11 +165,25 @@ const PORTFOLIO_DATA = {
       tags: ['BadUSB', 'Red Team Demo', 'Physical Security', 'USB Policy'],
     },
     {
+      id: 'proxmox-lab',
+      title: 'Proxmox VE Hypervisor Lab',
+      icon: '🖥️',
+      description: 'Type-1 hypervisor on HP EliteDesk Mini (i5-8500T, 16GB RAM, 756GB NVMe) — Active Directory attack lab with Windows Server 2025 DC, Windows 11 domain client, Kali Linux attacker, Metasploitable 2 target, and Ubuntu LXC. Wake on LAN via Pi 4. Remote access via Tailscale.',
+      tags: ['Proxmox', 'Active Directory', 'Kali Linux', 'Windows Server', 'Hypervisor', 'Tailscale', 'Wake on LAN'],
+    },
+    {
       id: 'live-usb-toolkit',
       title: 'Live USB Security Toolkit',
       icon: '🔧',
       description: 'Portable Kali Linux, Medicat, and diagnostic utilities for system recovery, troubleshooting, and field response scenarios.',
       tags: ['Kali Linux', 'Medicat', 'Incident Response'],
+    },
+    {
+      id: 'proxmox-lab',
+      title: 'Proxmox VE Hypervisor Lab',
+      icon: '🖥️',
+      description: 'Type-1 hypervisor on HP EliteDesk Mini (i5-8500T, 16GB RAM, 756GB NVMe) — Active Directory attack lab with Windows Server 2025 DC, Windows 11 domain client, Kali Linux attacker, Metasploitable 2 target, and Ubuntu LXC. Wake on LAN via Pi 4. Remote access via Tailscale.',
+      tags: ['Proxmox', 'Active Directory', 'Kali Linux', 'Windows Server', 'Hypervisor', 'Tailscale', 'Wake on LAN'],
     },
     {
       id: 'meshtastic',
@@ -111,6 +195,13 @@ const PORTFOLIO_DATA = {
       tags: ['Meshtastic', 'LoRa', 'Python', 'Discord.py', 'systemd'],
     },
     {
+      id: 'proxmox-lab',
+      title: 'Proxmox VE Hypervisor Lab',
+      icon: '🖥️',
+      description: 'Type-1 hypervisor on HP EliteDesk Mini (i5-8500T, 16GB RAM, 756GB NVMe) — Active Directory attack lab with Windows Server 2025 DC, Windows 11 domain client, Kali Linux attacker, Metasploitable 2 target, and Ubuntu LXC. Wake on LAN via Pi 4. Remote access via Tailscale.',
+      tags: ['Proxmox', 'Active Directory', 'Kali Linux', 'Windows Server', 'Hypervisor', 'Tailscale', 'Wake on LAN'],
+    },
+    {
       id: 'ai-automation',
       title: 'Self-Hosted AI Automation Server',
       icon: '🤖',
@@ -119,12 +210,26 @@ const PORTFOLIO_DATA = {
       tags: ['AI Agents', 'Telegram', 'Discord', 'Self-Hosted'],
     },
     {
+      id: 'proxmox-lab',
+      title: 'Proxmox VE Hypervisor Lab',
+      icon: '🖥️',
+      description: 'Type-1 hypervisor on HP EliteDesk Mini (i5-8500T, 16GB RAM, 756GB NVMe) — Active Directory attack lab with Windows Server 2025 DC, Windows 11 domain client, Kali Linux attacker, Metasploitable 2 target, and Ubuntu LXC. Wake on LAN via Pi 4. Remote access via Tailscale.',
+      tags: ['Proxmox', 'Active Directory', 'Kali Linux', 'Windows Server', 'Hypervisor', 'Tailscale', 'Wake on LAN'],
+    },
+    {
       id: 'media-server',
       title: 'Self-Hosted Media Server',
       icon: '🎬',
       sideProject: true,
       description: 'Plex and Jellyfin on Raspberry Pi 4 with external storage — accessible via Tailscale.',
       tags: ['Plex', 'Jellyfin', 'Raspberry Pi', 'Tailscale'],
+    },
+    {
+      id: 'proxmox-lab',
+      title: 'Proxmox VE Hypervisor Lab',
+      icon: '🖥️',
+      description: 'Type-1 hypervisor on HP EliteDesk Mini (i5-8500T, 16GB RAM, 756GB NVMe) — Active Directory attack lab with Windows Server 2025 DC, Windows 11 domain client, Kali Linux attacker, Metasploitable 2 target, and Ubuntu LXC. Wake on LAN via Pi 4. Remote access via Tailscale.',
+      tags: ['Proxmox', 'Active Directory', 'Kali Linux', 'Windows Server', 'Hypervisor', 'Tailscale', 'Wake on LAN'],
     },
     {
       id: 'defcon-badge',
@@ -156,16 +261,37 @@ const PORTFOLIO_DATA = {
 
   education: [
     {
+      id: 'proxmox-lab',
+      title: 'Proxmox VE Hypervisor Lab',
+      icon: '🖥️',
+      description: 'Type-1 hypervisor on HP EliteDesk Mini (i5-8500T, 16GB RAM, 756GB NVMe) — Active Directory attack lab with Windows Server 2025 DC, Windows 11 domain client, Kali Linux attacker, Metasploitable 2 target, and Ubuntu LXC. Wake on LAN via Pi 4. Remote access via Tailscale.',
+      tags: ['Proxmox', 'Active Directory', 'Kali Linux', 'Windows Server', 'Hypervisor', 'Tailscale', 'Wake on LAN'],
+    },
+    {
       degree: 'MS, Information Systems & Technology — Cybersecurity',
       school: 'California State University, San Bernardino',
       period: '05/2024 – 05/2026',
       note: 'GPA 4.00 · Graduated May 16, 2026',
     },
     {
+      id: 'proxmox-lab',
+      title: 'Proxmox VE Hypervisor Lab',
+      icon: '🖥️',
+      description: 'Type-1 hypervisor on HP EliteDesk Mini (i5-8500T, 16GB RAM, 756GB NVMe) — Active Directory attack lab with Windows Server 2025 DC, Windows 11 domain client, Kali Linux attacker, Metasploitable 2 target, and Ubuntu LXC. Wake on LAN via Pi 4. Remote access via Tailscale.',
+      tags: ['Proxmox', 'Active Directory', 'Kali Linux', 'Windows Server', 'Hypervisor', 'Tailscale', 'Wake on LAN'],
+    },
+    {
       degree: 'BS, Information Systems & Technology — Cybersecurity',
       school: 'California State University, San Bernardino',
       period: '01/2022 – 05/2024',
       note: 'GPA 3.95 · Summa Cum Laude · Dean\'s List',
+    },
+    {
+      id: 'proxmox-lab',
+      title: 'Proxmox VE Hypervisor Lab',
+      icon: '🖥️',
+      description: 'Type-1 hypervisor on HP EliteDesk Mini (i5-8500T, 16GB RAM, 756GB NVMe) — Active Directory attack lab with Windows Server 2025 DC, Windows 11 domain client, Kali Linux attacker, Metasploitable 2 target, and Ubuntu LXC. Wake on LAN via Pi 4. Remote access via Tailscale.',
+      tags: ['Proxmox', 'Active Directory', 'Kali Linux', 'Windows Server', 'Hypervisor', 'Tailscale', 'Wake on LAN'],
     },
     {
       degree: 'AS, Computer Science',
