@@ -5,6 +5,7 @@
   const NODES = {
     pihole: 'Pi-hole on Raspberry Pi Zero 2 W — network-wide DNS filtering, blocks malicious domains before they resolve.',
     pi4: 'Ubuntu Server on Raspberry Pi 4 — central hub: Plex, Jellyfin, Meshtastic Discord bridge, SSH + Tailscale remote admin.',
+    proxmox: 'Proxmox VE 9.2 on HP EliteDesk Mini (i5-8500T, 16GB RAM, 756GB NVMe) — Type-1 hypervisor running an Active Directory attack lab. VMs: Windows Server 2025 (DC01.lab.local), Windows 11 Education (domain client), Kali Linux (attacker), Metasploitable 2 (target), Ubuntu LXC. Remote access via Tailscale. Wake on LAN via Pi 4.',
     wazuh: 'Wazuh SIEM on Mac Mini (Docker/Colima) — threat detection, FIM, vuln scans, OpenSearch dashboard. Agents report through the Pi 4 hub.',
     mesh: '3-node LoRa mesh (T-Beam, Wio Tracker, T-Deck) — Python Discord bridge on Pi 4, 5-channel routing, systemd service.',
     ai: 'Self-hosted AI agent stack — Telegram + Discord bots, local automation, private and under my control.',
@@ -15,6 +16,7 @@
     ['wazuh', 'pi4'],
     ['mesh', 'pi4'],
     ['ai', 'pi4'],
+    ['proxmox', 'pi4'],
   ];
 
   const SCAN_LINES = [

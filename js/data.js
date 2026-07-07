@@ -14,6 +14,16 @@ const PORTFOLIO_DATA = {
       featured: true,
     },
     {
+      id: 'proxmox-lab',
+      title: 'Proxmox VE Hypervisor Lab',
+      category: 'security',
+      description: 'Type-1 hypervisor on HP EliteDesk Mini (i5-8500T, 16GB RAM, 756GB NVMe) — Active Directory attack lab with Windows Server 2025 DC, Windows 11 domain client, Kali Linux attacker, and Metasploitable 2 target. Remote access via Tailscale, Wake on LAN via Pi 4.',
+      tech: ['Proxmox', 'Windows Server', 'Active Directory', 'Kali Linux', 'Tailscale'],
+      url: null,
+      live: false,
+      featured: true,
+    },
+    {
       id: 'wireshark-dog',
       title: 'Robotic Dog Traffic Analysis',
       category: 'academic',
@@ -66,6 +76,13 @@ const PORTFOLIO_DATA = {
   ],
 
   labProjects: [
+    {
+      id: 'proxmox-lab',
+      title: 'Proxmox VE Hypervisor Lab',
+      icon: '🖥️',
+      description: 'Type-1 hypervisor on HP EliteDesk Mini (i5-8500T, 16GB RAM, 756GB NVMe) — Active Directory attack lab with Windows Server 2025 DC, Windows 11 domain client, Kali Linux attacker, Metasploitable 2 target, and Ubuntu LXC. Wake on LAN via Pi 4. Remote access via Tailscale.',
+      tags: ['Proxmox', 'Active Directory', 'Kali Linux', 'Windows Server', 'Hypervisor', 'Tailscale', 'Wake on LAN'],
+    },
     {
       id: 'wazuh-siem',
       title: 'Wazuh SIEM — Mac Mini Home Lab',

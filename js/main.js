@@ -107,7 +107,7 @@
     const grid = document.getElementById('project-grid');
     const sorted = [...projects].sort((a, b) => {
       if (a.featured !== b.featured) return Number(b.featured) - Number(a.featured);
-      const order = { academic: 0, web: 1 };
+      const order = { security: 0, academic: 1, web: 2 };
       return (order[a.category] ?? 2) - (order[b.category] ?? 2);
     });
 
